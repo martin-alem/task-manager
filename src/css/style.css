@@ -108,14 +108,17 @@ main section.weather_and_task .weather_widget p{
 
 main section.weather_and_task .date{
     color: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
 }
 
-main section.weather_and_task .date h4{
+main section.weather_and_task .date .date_container h4{
     font-weight: 100;
     font-size: 1.4rem;
 }
 
-main section.weather_and_task .date h1{
+main section.weather_and_task .date .date_container h1{
     font-size: 3rem;
     margin-bottom: -2rem;
 }
@@ -133,7 +136,7 @@ main section.weather_and_task .task .add_task_button{
     height:100%;
 }
 
-main section.weather_and_task .task .add_task_button button{
+main section.weather_and_task .task .add_task_button button, main section.weather_and_task .date button{
     height:4rem;
     width:4rem;
     border-radius: 50%;
@@ -145,15 +148,15 @@ main section.weather_and_task .task .add_task_button button{
     transition: all 0.5s;
 }
 
-main section.weather_and_task .task .add_task_button button:hover{
+main section.weather_and_task .task .add_task_button button:hover, main section.weather_and_task .date button:hover{
     background-color: var(--color-secondary-light)
 }
 
-main section.weather_and_task .task .add_task_button button:active{
+main section.weather_and_task .task .add_task_button button:active, main section.weather_and_task .date button:active{
     transform: translateY(.5rem);
 }
 
-main section.weather_and_task .add_task_button button .fa-plus{
+main section.weather_and_task .add_task_button button .fa-plus, main section.weather_and_task .date button .fa-plus{
     color: var(--color-primary);
     font-weight:bold;
     font-size: 2rem;
@@ -177,4 +180,11 @@ main section.weather_and_task .task::-webkit-scrollbar-track{
 main section.weather_and_task .task::-webkit-scrollbar-thumb {
     background: var(--color-white); 
     border-radius: 10px;
+}
+
+
+/* Utility */
+.hide{
+    display: none;
+    opacity: 0;
 }

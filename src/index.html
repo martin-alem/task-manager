@@ -14,9 +14,6 @@
 
     <!--Custom Style Sheet-->
     <link rel="stylesheet" href="./css/style.css">
-
-    <!-- Font Awesome Library-->
-    <script src="https://kit.fontawesome.com/baa956de60.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -53,13 +50,33 @@
 
         <section class="main">
             <div class="tab_buttons">
-                <button class="tab_button active task"><i class="fas fa-tasks"></i> Task</button>
-                <button class="tab_button latest_news"><i class="fas fa-newspaper"></i> Latest News</button>
-                <button class="tab_button dictionary"><i class="fas fa-book"></i> Dictionary</button>
-                <button class="tab_button currency_converter"><i class="fas fa-money-bill"></i> Currency Converter</button>
+                <button class="tab_button active" data-section="task"><i class="fas fa-tasks"></i> Task</button>
+                <button class="tab_button" data-section="latest_news"><i class="fas fa-newspaper"></i> Latest News</button>
+                <button class="tab_button" data-section="dictionary"><i class="fas fa-book"></i> Dictionary</button>
+                <button class="tab_button" data-section="currency_converter"><i class="fas fa-money-bill"></i> Currency Converter</button>
+            </div>
+            <div class="tab_contents">
+                <div class="tab_content task" data-section="task">
+                    <h1>Task</h1>
+                </div>
+                <div class="tab_content latest_news hide" data-section="latest_news">
+                    <h1>Latest News</h1>
+                </div>
+                <div class="tab_content dictionary hide" data-section="dictionary">
+                    <h1>Dictionary</h1>
+                </div>
+                <div class="tab_content currency_converter hide" data-section="currency_converter">
+                    <h1>Currency Converter</hh1>
+                </div>
             </div>
         </section>
     </main>
     
+
+        <!-- Font Awesome Library-->
+        <script src="https://kit.fontawesome.com/baa956de60.js" crossorigin="anonymous"></script>
+
+        <!-- Tab functionality -->
+        <script src="./js/app.js"></script>
 </body>
 </html>

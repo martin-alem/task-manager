@@ -1,0 +1,24 @@
+/*
+  css reset rule
+*/
+html{
+    font-size:10px;
+    font-family: 'Merienda', cursive;
+}
+
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+
+/*
+  css variables
+*/
+:root{
+    --color-background:#0B253C;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+}

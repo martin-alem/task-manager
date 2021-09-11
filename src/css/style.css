@@ -187,6 +187,8 @@ main section.weather_and_task .task::-webkit-scrollbar-thumb {
 /* Main Section */
 main section.main{
     grid-area: Main;
+    display: flex;
+    flex-direction: column;
 }
 
 main section.main .tab_buttons {
@@ -213,6 +215,28 @@ main section.main .tab_buttons .tab_button:hover{
 
 main section.main .tab_buttons .tab_button:not(:last-child){
     border-right: 2px solid var(--color-text1);
+}
+main section.main .tab_contents{
+    height: 66.4rem;
+}
+
+main section.main .tab_contents .tab_content{
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Style scroll bars */
+main section.main .tab_contents .tab_content::-webkit-scrollbar{
+    width: .5rem;
+}
+
+main section.main .tab_contents .tab_content::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px var(--color-primary); 
+}
+
+main section.main .tab_contents .tab_content::-webkit-scrollbar-thumb {
+    background: var(--color-white); 
+    border-radius: 10px;
 }
 
 /* Utility */

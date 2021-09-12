@@ -1,5 +1,24 @@
 window.onload = function() {
 
+    //weather modal functionality
+    (function(){
+
+        //obtain the reference to weather widget, overlay and modal window
+        const weatherWidget = document.querySelector("main .weather_and_task .weather_widget");
+        const overlay = document.querySelector(".overlay");
+        const modalWindow = document.querySelector(".weather_modal");
+
+        weatherWidget.addEventListener("click", openAndCloseWeatherModal);
+        overlay.addEventListener("click", openAndCloseWeatherModal);
+        
+        //open modal window
+        function openAndCloseWeatherModal(){
+
+            overlay.classList.toggle("hide");
+            modalWindow.classList.toggle("hide");
+        }
+
+    })();
     
     // Tab functionality
     (function(){

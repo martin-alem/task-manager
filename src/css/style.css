@@ -246,9 +246,12 @@ main section.main .tab_contents .tab_content::-webkit-scrollbar-thumb {
     width: 60rem;
     background-color: var(--color-bg-button);
     position: absolute;
-    top: 30%;
+    top:  30%;
     left: 50%;
     transform: translate(-50%, -30%);
+    animation-name: openModal;
+    animation-duration: 0.4s;
+    z-index: 20;
 }
 
 .weather_modal .modal_content .weather_details{
@@ -277,6 +280,19 @@ main section.main .tab_contents .tab_content::-webkit-scrollbar-thumb {
     font-family: inherit;
     font-size: 1.6rem;
 }
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    opacity: 0.5;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+
 /* Utility */
 .hide{
     display: none;
@@ -285,4 +301,22 @@ main section.main .tab_contents .tab_content::-webkit-scrollbar-thumb {
 
 main section.main .tab_buttons button.active{
     border-bottom: 4px solid var(--color-primary);
+}
+
+/* animation */
+@keyframes openModal {
+    
+    from {
+        top: -30%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        opacity: 0;
+    }
+
+    to{
+        top:  30%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        opacity: 1;
+    }
 }

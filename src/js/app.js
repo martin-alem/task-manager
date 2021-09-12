@@ -9,6 +9,7 @@ window.onload = function() {
         const calendar = document.querySelector("#calendar");
 
         const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const abbreviatedDayNames = {"Sun": 0, "Mon": 1, "Tue": 2, "Wed": 3, "Thu": 4, "Fri": 5, "Sat": 6,}
         const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
         const todayDate = new Date();
@@ -18,13 +19,29 @@ window.onload = function() {
         weatherSectionDate.textContent = `${todayDate.getDate()} ${Months[todayDate.getMonth()]}`;
 
 
-        for(let i = 1; i < 32; i++){
+        const previousMonthDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), 0);
+        const previousMonthDateInfo = previousMonthDate.toString().split(" ");
+        const lastDayOfPreviousMonth = abbreviatedDayNames[previousMonthDateInfo[0]];
+        const numberOfDaysInCurrentMonth = new Date(todayDate.getYear(), todayDate.getMonth() + 1, 0).getDate();
+
+        let count = 1;
+        let value = 1;
+        while(count <= numberOfDaysInCurrentMonth + lastDayOfPreviousMonth) {
+
             const span = document.createElement('span');
-            if(i === todayDate.getDate()){
+            const empty = document.createElement('i');
+            if(value === todayDate.getDate()){
                 span.classList.add("current");
             }
-            span.textContent = `${i}`;
-            calendar.appendChild(span);
+
+            if(count >= lastDayOfPreviousMonth + 1){
+                span.textContent = `${value++}`;
+                calendar.appendChild(span);
+            }
+            else{
+                calendar.appendChild(empty);
+            }
+            count += 1;
         }
 
     })();

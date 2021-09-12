@@ -15,6 +15,7 @@ html{
 */
 :root{
     --color-background:#0B253C;
+    --color-black: #413A37;
     --color-white: #FFFFFF;
     --color-bg-button: #F5F5F2;
     --color-text1: #839FAE;
@@ -224,8 +225,20 @@ main section.main .tab_contents{
 
 main section.main .tab_contents .tab_content{
     height: 100%;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
+
+main section.main .tab_contents .tab_content .content{
+    padding: 0rem 4rem;
+}
+
+main section.main .tab_contents .tab_content .content h1{
+    font-size:4rem;
+    font-weight: 900;
+    text-transform: capitalize;
+    color: var(--color-black);
+}
+
 
 /* Style scroll bars */
 main section.main .tab_contents .tab_content::-webkit-scrollbar{

@@ -73,7 +73,8 @@
     </main>
 
     <!--Overlay-->
-    <div class="overlay hide"></div>
+    <div class="overlay weather_overlay hide"></div>
+    <div class="overlay task_overlay hide"></div>
 
     <!--Weather Modal-->
     <div class="modal weather_modal hide">
@@ -112,10 +113,9 @@
     <!-- Add task Modal -->
     <div class="modal task_modal hide">
         <div class="modal_content">
+            <button class="btn cancel">Cancel</button>
             <header>
-                <button class="btn cancel">Cancel</button>
                 <h1 class="heading">Add Task</h1>
-                <button class="btn done">Done</button>
             </header>
             <form class="task_form">
                 <input type="text" class="description" placeholder="Task Description">

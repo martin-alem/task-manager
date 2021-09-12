@@ -1,11 +1,36 @@
 window.onload = function() {
 
+
+    //Add Task Modal functionality
+    (function(){
+
+        // obtain the reference to add task buttons and add task modal
+        const addTaskButton = document.querySelectorAll("button.add_task");
+        const cancelButton = document.querySelector(".task_modal .modal_content button.cancel");
+        const taskModal = document.querySelector(".task_modal");
+        const overlay = document.querySelector(".task_overlay");
+
+        addTaskButton.forEach(button => {
+            button.addEventListener("click", openAndCloseModal);
+        });
+
+        cancelButton.addEventListener("click", openAndCloseModal);
+
+
+        //open modal window
+        function openAndCloseModal() {
+            overlay.classList.toggle("hide");
+            taskModal.classList.toggle("hide");
+        }
+
+    })();
+
     //weather modal functionality
     (function(){
 
         //obtain the reference to weather widget, overlay and modal window
         const weatherWidget = document.querySelector("main .weather_and_task .weather_widget");
-        const overlay = document.querySelector(".overlay");
+        const overlay = document.querySelector(".weather_overlay");
         const modalWindow = document.querySelector(".weather_modal");
 
         weatherWidget.addEventListener("click", openAndCloseWeatherModal);

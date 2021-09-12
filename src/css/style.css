@@ -299,9 +299,8 @@ main section.main .tab_contents .tab_content::-webkit-scrollbar-thumb {
 }
 
 .task_modal .modal_content header{
-    margin-bottom: 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -337,11 +336,11 @@ main section.main .tab_contents .tab_content::-webkit-scrollbar-thumb {
     transform: translateY(.5rem);
 }
 
-.task_modal .modal_content header button.cancel{
+.task_modal .modal_content button.cancel{
     background-color: var(--color-danger);
 }
 
-.task_modal .modal_content header button.done, button.submit{
+.task_modal .modal_content button.submit{
     background-color: var(--color-secondary);
 }
 

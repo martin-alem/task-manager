@@ -230,6 +230,7 @@ main section.main .tab_contents .tab_content{
 
 main section.main .tab_contents .tab_content .content{
     padding: 0rem 4rem;
+    width: 100%;
 }
 
 main section.main .tab_contents .tab_content .content h1{
@@ -237,6 +238,42 @@ main section.main .tab_contents .tab_content .content h1{
     font-weight: 900;
     text-transform: capitalize;
     color: var(--color-black);
+}
+
+main section.main .tab_contents .tab_content .content .calendar_container{
+    width: 100%;
+    display: flex;
+}
+
+main section.main .tab_contents .tab_content .content .calendar_container .calendar{
+    width: 100%;
+}
+
+main section.main .tab_contents .tab_content .content .calendar_container .calendar .daysOfWeek{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main section.main .tab_contents .tab_content .content .calendar_container .calendar .daysOfWeek span{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+main section.main .tab_contents .tab_content .content .calendar_container .calendar .calendar_dates{
+    height: 30rem;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: .5rem;
+}
+
+main section.main .tab_contents .tab_content .content .calendar_container .calendar .calendar_dates span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 
@@ -361,6 +398,12 @@ main section.main .tab_contents .tab_content::-webkit-scrollbar-thumb {
 .hide{
     display: none;
     opacity: 0;
+}
+
+.current{
+    color: var(--color-secondary);
+    font-weight: 900;
+    font-size: 2rem !important;
 }
 
 main section.main .tab_buttons button.active{

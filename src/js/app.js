@@ -6,6 +6,7 @@ window.onload = function() {
         const mainSectionDate = document.querySelector("section.main .tab_contents .tab_content h1.date");
         const weatherSectionDay = document.querySelector("section.weather_and_task .date .current_day");
         const weatherSectionDate = document.querySelector("section.weather_and_task .date .current_date");
+        const calendar = document.querySelector("#calendar");
 
         const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -14,7 +15,17 @@ window.onload = function() {
 
         mainSectionDate.textContent = `${Months[todayDate.getMonth()]}, ${todayDate.getDate()}`;
         weatherSectionDay.textContent = `${daysOfWeek[todayDate.getDay()]}`;
-        weatherSectionDate.textContent = `${todayDate.getDate()} ${Months[todayDate.getMonth()]}`
+        weatherSectionDate.textContent = `${todayDate.getDate()} ${Months[todayDate.getMonth()]}`;
+
+
+        for(let i = 1; i < 32; i++){
+            const span = document.createElement('span');
+            if(i === todayDate.getDate()){
+                span.classList.add("current");
+            }
+            span.textContent = `${i}`;
+            calendar.appendChild(span);
+        }
 
     })();
 

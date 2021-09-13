@@ -18,9 +18,9 @@ window.onload = function() {
         weatherSectionDay.textContent = `${daysOfWeek[todayDate.getDay()]}`;
         weatherSectionDate.textContent = `${todayDate.getDate()} ${Months[todayDate.getMonth()]}`;
 
-
-        const previousMonthDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), 0);
-        const previousMonthDateInfo = previousMonthDate.toString().split(" ");
+        
+        const previousMonthDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), 0); //Get the last day of the previous month
+        const previousMonthDateInfo = previousMonthDate.toString().split(" "); // convert to string in other to obtain different pieces of information
         const lastDayOfPreviousMonth = abbreviatedDayNames[previousMonthDateInfo[0]];
         const numberOfDaysInCurrentMonth = new Date(todayDate.getYear(), todayDate.getMonth() + 1, 0).getDate();
 
@@ -117,7 +117,7 @@ window.onload = function() {
         //switch tabs
         function switchTab(newTab, section, nextTabButton){
 
-            if(currentSection !== section && nextTabButton !== currentTabButton){
+            if(currentSection !== section && nextTabButton !== currentTabButton && nextTabButton.classList.contains("tab_button")){
                 currentTab.classList.toggle("hide");
                 newTab.classList.toggle("hide");
                 currentTabButton.classList.toggle("active");

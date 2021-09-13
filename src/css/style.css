@@ -24,6 +24,9 @@ html{
     --color-secondary-light: #c55a9a;
     --color-danger: #FF2442;
     --color-gray: #C8C6C6;
+    --color-completed: #3DB2FF;
+    --color-postpone: #22577A;
+    --color-all: #FFB830;
 }
 
 body{
@@ -62,8 +65,8 @@ main header {
     height: 8rem;
     padding: 1rem 1rem;
     display: flex;
-    justify-content: flex-end;
-    /* background-color: var(--color-white); */
+    justify-content: space-between;
+    align-items: center;
 }
 
 main header .header__image{
@@ -71,6 +74,10 @@ main header .header__image{
     align-items: center;
     gap: 1rem;
     height: 6rem;
+}
+
+main header .logout{
+    color: var(--color-black);
 }
 
 main header .header__image img{
@@ -225,7 +232,7 @@ main section.main .tab_contents{
 
 main section.main .tab_contents .tab_content{
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 main section.main .tab_contents .tab_content .content{
@@ -276,6 +283,41 @@ main section.main .tab_contents .tab_content .content .calendar_container .calen
     cursor: pointer;
 }
 
+main section.main .tab_contents .tab_content .content .task_status .status_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main section.main .tab_contents .tab_content .content .task_status .status_container .status{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main section.main .tab_contents .tab_content .content .task_status .status_container .status h2{
+    font-size: 2rem;
+}
+
+main section.main .tab_contents .tab_content .content .task_status .status_container .status h3{
+    font-size: 2.5rem;
+}
+
+main section.main .tab_contents .tab_content .content .task_status .status_container .complete{
+    color: var(--color-completed);
+}
+
+main section.main .tab_contents .tab_content .content .task_status .status_container .undone{
+    color: var(--color-danger);
+}
+
+main section.main .tab_contents .tab_content .content .task_status .status_container .postponed{
+    color: var(--color-postpone);
+}
+
+main section.main .tab_contents .tab_content .content .task_status .status_container .all_task{
+    color: var(--color-all);
+}
 
 /* Style scroll bars */
 main section.main .tab_contents .tab_content::-webkit-scrollbar{

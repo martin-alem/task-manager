@@ -150,18 +150,19 @@ class WeatherController{
      * Handles the submission of weather form
      * @param {Event} event event object
      */
-    _handleFormSubmit(event){
+   async _handleFormSubmit(event){
         event.preventDefault();
         const city = event.target.firstElementChild.value;
         if(city){
-            this.weatherModel.fetchWeatherByCity(city)
-                .then(weatherData => {
-                    const data = this._extractWeatherData(weatherData);
-                    this._displayWeatherData(data);
-                })
-                .catch(error => {
-                    console.log(error);
-                })
+            try {
+                const weatherData = await this._fetchWeatherByCity(city);
+                const data = this._extractWeatherData(weatherData);
+                this._displayWeatherData(data);
+                event.target.firstElementChild.value = "";
+            } catch (error) {
+                // Give the user an alert for invalid location
+                console.log(error);
+            }
         }
     }
 

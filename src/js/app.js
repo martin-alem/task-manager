@@ -1,8 +1,10 @@
 import weatherController from "./controller/WeatherController.js";
+import newsController from "./controller/NewsController.js";
 
 window.onload = function() {
 
     weatherController.init();
+    // newsController.init();
 
     //calendar functionality
     (function(){

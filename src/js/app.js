@@ -1,4 +1,8 @@
+import weatherController from "./controller/WeatherController.js";
+
 window.onload = function() {
+
+    weatherController.init();
 
     //calendar functionality
     (function(){

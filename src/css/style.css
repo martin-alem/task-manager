@@ -117,6 +117,10 @@ main section.weather_and_task .weather_widget p{
     font-weight: 200;
 }
 
+main section.weather_and_task .weather_widget .weather_image{
+    width: 60%;
+}
+
 main section.weather_and_task .date{
     color: var(--color-white);
     display: flex;

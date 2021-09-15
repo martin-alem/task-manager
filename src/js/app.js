@@ -7,7 +7,7 @@ window.onload = function() {
 
     weatherController.init();
     // newsController.init();
-    // bibleController.init();
+    bibleController.init();
     currencyController.init();
 
     //calendar functionality

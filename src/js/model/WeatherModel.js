@@ -23,6 +23,28 @@ class WeatherModel{
         const url = `${WeatherModel.url}&lat=${latitude}&lon=${longitude}&appid=${WeatherModel.key}`;
         return $.ajax({url: url});
     }
+
+    /**
+     * Extracts weather data from api response
+     * @param {object} weatherData 
+     * @returns {object} returns an object containing weather data
+     */
+    extractWeatherData(weatherData){
+
+        const data = {};
+
+        data["id"] = weatherData["weather"][0]["id"];
+        data["temp"] = Math.trunc(weatherData["main"]["temp"]);
+        data["description"] = weatherData["weather"][0]["description"];
+        data["high_temp"] = Math.trunc(weatherData["main"]["temp_max"]);
+        data["low_temp"] = Math.trunc(weatherData["main"]["temp_min"]);
+        data["humidity"] = weatherData["main"]["humidity"];
+        data["visibility"] = weatherData["visibility"];
+        data["wind"] = weatherData["wind"]["speed"];
+        data["country"] = weatherData["sys"]["country"];
+        data["city"] = weatherData["name"];
+        return data;
+    }
     
 }
 

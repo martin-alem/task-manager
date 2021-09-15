@@ -25,8 +25,8 @@ class WeatherController{
             const location = this.wLocalStorage.getData("location");
             try {
                 const weatherData = await this._fetchWeatherByCity(location);
-                const data = this._extractWeatherData(weatherData);
-                this._displayWeatherData(data)
+                const data = this.weatherModel.extractWeatherData(weatherData);
+                this.weatherView.displayWeatherData(data)
             } catch (error) {
                 console.log(error);
             }
@@ -38,8 +38,8 @@ class WeatherController{
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
                 const weatherData = await this._fetchWeatherByCoordinate(latitude, longitude);
-                const data = this._extractWeatherData(weatherData);
-                this._displayWeatherData(data);
+                const data = this.weatherModel.extractWeatherData(weatherData);
+                this.weatherView.displayWeatherData(data);
                 this.wLocalStorage.addData("location", data["city"]);
 
             } catch (error) {
@@ -55,8 +55,12 @@ class WeatherController{
      * @returns {object} returns an object containing weather data
      */
     async _fetchWeatherByCity(cityName){
-        const weatherData = await this.weatherModel.fetchWeatherByCity(cityName);
-        return weatherData;
+        try {
+            const weatherData = await this.weatherModel.fetchWeatherByCity(cityName);
+            return weatherData;
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     /**
@@ -66,8 +70,13 @@ class WeatherController{
      * @returns {object} returns an object containing weather data
      */
     async _fetchWeatherByCoordinate(latitude, longitude){
-        const weatherData = await this.weatherModel._fetchWeatherByCoordinate(latitude, longitude);
-        return weatherData;
+        try {
+            const weatherData = await this.weatherModel._fetchWeatherByCoordinate(latitude, longitude);
+            return weatherData;
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
     /**
@@ -75,58 +84,15 @@ class WeatherController{
      * @returns {object} returns an object containing user's geographical location
      */
     async _getCoordinates(){
-        const position = await this._getUserLocation();
-        return position;
-    }
-
-    /**
-     * Extracts weather data from api response
-     * @param {object} weatherData 
-     * @returns {object} returns an object containing weather data
-     */
-    _extractWeatherData(weatherData){
-
-        const data = {};
-
-        data["id"] = weatherData["weather"][0]["id"];
-        data["temp"] = Math.trunc(weatherData["main"]["temp"]);
-        data["description"] = weatherData["weather"][0]["description"];
-        data["high_temp"] = Math.trunc(weatherData["main"]["temp_max"]);
-        data["low_temp"] = Math.trunc(weatherData["main"]["temp_min"]);
-        data["humidity"] = weatherData["main"]["humidity"];
-        data["visibility"] = weatherData["visibility"];
-        data["wind"] = weatherData["wind"]["speed"];
-        data["country"] = weatherData["sys"]["country"];
-        data["city"] = weatherData["name"];
-        return data;
-    }
-
-    /**
-     * Displays weather data in weather widget
-     * @param {object} data filtered weather data
-     */
-    _displayWeatherData(data){
-
-        const weatherImages = {
-            200: "https://i.ibb.co/HghByg3/thunderstorm.png",
-            300: "https://i.ibb.co/grd5hx7/drizzle.png",
-            500: "https://i.ibb.co/K0qd2WF/rain.png",
-            600: "https://i.ibb.co/pPTDp9z/snow.png",
-            701: "https://i.ibb.co/t4St56q/mist.png",
-            800: "https://i.ibb.co/h9HgYQk/default-weather-icon.png",
-            801: "https://i.ibb.co/0h6VRq1/315683-clouds-icon.png"
+        try {
+            const position = await this._getUserLocation();
+            return position;
+        } catch (error) {
+            console.log(error);
         }
-
-        this.weatherView.weatherImage.setAttribute("src", weatherImages[this._mapRangeToSingleValue(data["id"])]);
-        this.weatherView.heading.textContent = `${data["city"]}, ${data["country"]}`;
-        this.weatherView.tempValue.textContent = data["temp"];
-        this.weatherView.weatherDescription.textContent = data["description"];
-        this.weatherView.highTemp.textContent = data["high_temp"];
-        this.weatherView.lowTemp.textContent = data["low_temp"];
-        this.weatherView.humidity.textContent = data["humidity"];
-        this.weatherView.wind.textContent = data["wind"];
-        this.weatherView.visibility.textContent = data["visibility"];
     }
+
+
 
     /**
      * Gets the user's location
@@ -156,30 +122,14 @@ class WeatherController{
         if(city){
             try {
                 const weatherData = await this._fetchWeatherByCity(city);
-                const data = this._extractWeatherData(weatherData);
-                this._displayWeatherData(data);
+                const data = this.weatherModel.extractWeatherData(weatherData);
+                this.weatherView.displayWeatherData(data);
                 event.target.firstElementChild.value = "";
             } catch (error) {
                 // Give the user an alert for invalid location
                 console.log(error);
             }
         }
-    }
-
-    /**
-     * Maps a range to a single value
-     * @param {number} value 
-     * @returns {number} returns a number
-     */
-    _mapRangeToSingleValue(value){
-
-        if(value >= 200 && value <= 232) return 200;
-        if(value >= 300 && value <= 321) return 300;
-        if(value >= 500 && value <= 531) return 500;
-        if(value >= 600 && value <= 622) return 600;
-        if(value >= 700 && value <= 781) return 701;
-        if(value >= 801 && value <= 804) return 801;
-        if(value === 800)                return 800;
     }
 
     /**

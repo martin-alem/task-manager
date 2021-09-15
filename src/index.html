@@ -132,7 +132,28 @@
                     </div>
                 </div>
                 <div class="tab_content currency_converter hide" data-section="currency_converter">
-                    <h1>Currency Converter</h1>
+                    <div class="contents">
+                        <form class="currency_converter">
+                            <input type="text" class="currency amount" placeholder="Enter Amount">
+                            <select name="currency" id="base" class="currency from">
+                                <option value ="" select>From</option>
+                            </select>
+
+                            <select name="currency" id="target" class="currency to">
+                                <option value ="" select>To</option>
+                            </select>
+                        </form>
+                        <div class="result">
+                            <div class="rate">
+                                <h1>Conversion Rate: </h1>
+                                <p></p>
+                            </div>
+                            <div class="conversion">
+                                <h1>Conversion Result: </h1>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

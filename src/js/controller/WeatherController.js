@@ -50,7 +50,9 @@ class WeatherController{
                 if(error instanceof GeolocationPositionError){
                     ErrorHandler.message("warning", "Could not get user's location", 3000);
                 }
-                ErrorHandler.message("warning", "City not found", 3000);
+                else{
+                    ErrorHandler.message("warning", "City not found", 3000);
+                }
                 console.error(error);
             }
         }

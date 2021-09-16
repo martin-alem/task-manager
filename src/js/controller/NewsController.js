@@ -1,5 +1,6 @@
 import NewsModel from "../model/NewsModel.js";
 import NewsView from "../view/NewsView.js";
+import ErrorHandler from "../util/ErrorHandler.js";
 
 class NewsController{
 
@@ -18,7 +19,11 @@ class NewsController{
             if(news["status"] === "ok"){
                 this.newsView.displayNews(news["articles"]);
             }
+            else{
+                ErrorHandler.message("info", "News not found", 3000);
+            }
         } catch (error) {
+            ErrorHandler.message("warning", "Could not access news API", 3000);
             console.error(error);
         }
     }

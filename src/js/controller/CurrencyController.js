@@ -1,5 +1,6 @@
 import CurrencyModel from "../model/CurrencyModel.js";
 import CurrencyView from "../view/CurrencyView.js";
+import ErrorHandler from "../util/ErrorHandler.js"
 
 class CurrencyController{
 
@@ -80,6 +81,7 @@ class CurrencyController{
             this.currencyView.displayResults(result);
             
         } catch (error) {
+            ErrorHandler.message("warning", "Could not fetch conversion",3000);
             console.error(error);
         }
     }

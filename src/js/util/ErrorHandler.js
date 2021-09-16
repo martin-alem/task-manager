@@ -4,16 +4,10 @@ class ErrorHandler{
     static toastHeader = document.querySelector(".toast .heading");
     static toastMessage = document.querySelector(".toast .message")
 
-    static message(type, error, duration){
-
-        if(error instanceof GeolocationPositionError){
-            ErrorHandler.toastMessage.textContent = "Could not get user's location";
-        }
-        else if(error.readyState === 4){
-            ErrorHandler.toastMessage.textContent = "City not found";
-        }
+    static message(type, message, duration){
         ErrorHandler.toastHeader.textContent = type;
-        ErrorHandler.toastContainer.classList.add("warning", "loadMessage");
+        ErrorHandler.toastMessage.textContent = message;
+        ErrorHandler.toastContainer.classList.add(type, "loadMessage");
         ErrorHandler.toastContainer.classList.remove("hide");
         ErrorHandler.clearError(duration);
     }

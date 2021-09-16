@@ -1,5 +1,6 @@
 import BibleModel from "../model/BibleModel.js";
 import BibleView from "../view/BibleView.js";
+import ErrorHandler from "../util/ErrorHandler.js";
 
 class BibleController{
 
@@ -21,6 +22,7 @@ class BibleController{
             const books = await this.bibleModel.fetchAllBooks();
             this.bibleView.populateBookSelectInput(books);
         } catch (error) {
+            ErrorHandler.message("warning", "Could not fetch all books", 3000);
             console.log(error);
         }
     }
@@ -58,6 +60,7 @@ class BibleController{
             this.bibleModel.chapter = chapter;
             this.bibleModel.book = bibleObject["book"]["name"];
         } catch (error) {
+            ErrorHandler.message("warning", "Could not fetch verses", 3000);
             console.error(error);
         }
     }
@@ -77,6 +80,7 @@ class BibleController{
             this.bibleView.displayBibleData(this.bibleModel.book, this.bibleModel.chapter, this.bibleModel.verse, bibleObject["text"]);
 
         } catch (error) {
+            ErrorHandler.message("warning", "Could not fetch bible data", 3000);
             console.error(error.message);
         }
 

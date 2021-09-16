@@ -27,10 +27,11 @@ class WeatherController{
             try {
                 const weatherData = await this._fetchWeatherByCity(location);
                 const data = this.weatherModel.extractWeatherData(weatherData);
-                this.weatherView.displayWeatherData(data)
+                this.weatherView.displayWeatherData(data);
             } catch (error) {
-                ErrorHandler.message("Warning", error, 3000);
-                console.log(error);
+
+                ErrorHandler.message("warning", "City not found", 3000);
+                console.error(error);
             }
         }
         else{
@@ -46,7 +47,10 @@ class WeatherController{
                 this.wLocalStorage.addData("location", data["city"]);
 
             } catch (error) {
-                ErrorHandler.message("Warning", error, 3000);
+                if(error instanceof GeolocationPositionError){
+                    ErrorHandler.message("warning", "Could not get user's location", 3000);
+                }
+                ErrorHandler.message("warning", "City not found", 3000);
                 console.error(error);
             }
         }
@@ -118,7 +122,8 @@ class WeatherController{
                 event.target.firstElementChild.value = "";
             } catch (error) {
                 // If readyState is 4 request failed
-                ErrorHandler.message("Warning", error, 3000);
+                ErrorHandler.message("warning", "City not found", 3000);
+                console.error(error)
             }
         }
     }

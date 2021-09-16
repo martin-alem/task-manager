@@ -1,20 +1,15 @@
-class NewsView{
+class NewsView {
+	constructor() {
+		this.newsContainer = $("main section.main .tab_contents .latest_news .contents");
+	}
 
-    constructor(){
-        this.newsContainer = $("main section.main .tab_contents .latest_news .contents");
-    }
-
-    
-    /**
-     * Displays news data on the page
-     * @param {object} newsData news data retrieved from API
-     */
-     displayNews(newsData) {
-
-        for(let i = 0; i < 20; i++) {
-
-            const article =
-                `<div class="article">
+	/**
+	 * Displays news data on the page
+	 * @param {object} newsData news data retrieved from API
+	 */
+	displayNews(newsData) {
+		for (let i = 0; i < 20; i++) {
+			const article = `<div class="article">
                 <div class="section1">
                     <h1 class="source">${newsData[i]["source"]["name"]}</h1>
                     <p class="date">${newsData[i]["publishedAt"]}</p>
@@ -27,9 +22,9 @@ class NewsView{
                 </div>
             </div>`;
 
-            this.newsContainer.append(article);
-        }
-    }
+			this.newsContainer.append(article);
+		}
+	}
 }
 
 export default NewsView;

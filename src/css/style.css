@@ -1,686 +1,944 @@
 /*
   css reset rule
 */
-html{
-    font-size:10px;
-    font-family: 'Merienda', cursive;
+html {
+	font-size: 10px;
+	font-family: "Merienda", cursive;
 }
 
-*, *:before, *:after{
-    box-sizing: border-box;
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
 }
 
 /*
   css variables
 */
-:root{
-    --color-background:#0B253C;
-    --color-black: #413A37;
-    --color-white: #FFFFFF;
-    --color-bg-button: #F5F5F2;
-    --color-text1: #839FAE;
-    --color-primary: #5252B2;
-    --color-secondary: #F037A5;
-    --color-secondary-light: #c55a9a;
-    --color-danger: #FF2442;
-    --color-gray: #C8C6C6;
-    --color-completed: #3DB2FF;
-    --color-postpone: #22577A;
-    --color-all: #FFB830;
-    --color-info: #3DB2FF;
-    --color-danger: #FF6B6B;
-    --color-warning: #FFD371;
+:root {
+	--color-background: #0b253c;
+	--color-black: #413a37;
+	--color-white: #ffffff;
+	--color-bg-button: #f5f5f2;
+	--color-text1: #839fae;
+	--color-primary: #5252b2;
+	--color-secondary: #f037a5;
+	--color-secondary-light: #c55a9a;
+	--color-danger: #ff2442;
+	--color-gray: #c8c6c6;
+	--color-completed: #3db2ff;
+	--color-postpone: #22577a;
+	--color-all: #ffb830;
+	--color-info: #3db2ff;
+	--color-danger: #ff6b6b;
+	--color-warning: #ffd371;
 }
 
-body{
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-background);
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--color-background);
 }
 
 /* main */
-main{
-    max-width: 1200px;
-    height: 800px;
-    background-color: var(--color-white);
-    margin: 5rem auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    grid-template-areas: 
-    "header header header header header header header header header header header header"
-    "Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
-    "Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
-    "Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
-    "Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
-    "Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
-    "Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
-    "Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
-    "Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
-    "Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
-    "Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
-    "Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main";
+main {
+	max-width: 1200px;
+	height: 800px;
+	background-color: var(--color-white);
+	margin: 5rem auto;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(12, 1fr);
+	grid-template-areas:
+		"header header header header header header header header header header header header"
+		"Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
+		"Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
+		"Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
+		"Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
+		"Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
+		"Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
+		"Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
+		"Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
+		"Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
+		"Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main"
+		"Side   Side   Side   Side   Main   Main   Main   Main   Main   Main   Main   Main";
 }
 
 main header {
-    grid-area: header;
-    height: 8rem;
-    padding: 1rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	grid-area: header;
+	height: 8rem;
+	padding: 1rem 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
-main header .header__image{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    height: 6rem;
+main header .header__image {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	height: 6rem;
 }
 
-main header .logout{
-    color: var(--color-black);
+main header .logout {
+	color: var(--color-black);
 }
 
-main header .header__image img{
-    width: 6rem;
+main header .menu {
+	font-size: 3rem;
+	color: var(--color-black);
+	display: none;
+	cursor: pointer;
 }
 
-main header .header__image h4{
-    color: var(--color-text1);
-    font-size:1.5rem;
+main header .header__image img {
+	width: 6rem;
+}
+
+main header .header__image h4 {
+	color: var(--color-text1);
+	font-size: 1.5rem;
 }
 
 /* section weather and task */
 
-main section.weather_and_task{
-    background-color: var(--color-primary);
-    grid-area: Side;
-    padding: 0 1.5rem;
-    display: flex;
-    flex-direction: column;
+main section.weather_and_task {
+	background-color: var(--color-primary);
+	grid-area: Side;
+	padding: 0 1.5rem;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	z-index: 11;
 }
 
-main section.weather_and_task .weather_widget{
-    text-align: center;
-    color: var(--color-white);
-    cursor: pointer;
+main section.weather_and_task i.fa-times {
+	position: absolute;
+	font-size: 3.5rem;
+	color: var(--color-white);
+	top: 2rem;
+	right: 2rem;
+	display: none;
+	cursor: pointer;
 }
 
-main section.weather_and_task .weather_widget h2{
-    font-size: 6rem;
-    font-weight: bolder;
-    margin-top: -2.5rem;
-    margin-bottom: -1rem;
+main section.weather_and_task .weather_widget {
+	text-align: center;
+	color: var(--color-white);
+	cursor: pointer;
 }
 
-main section.weather_and_task .weather_widget p{
-    font-size: 1.5rem;
-    font-weight: 200;
+main section.weather_and_task .weather_widget h2 {
+	font-size: 6rem;
+	font-weight: bolder;
+	margin-top: -2.5rem;
+	margin-bottom: -1rem;
 }
 
-main section.weather_and_task .weather_widget .weather_image{
-    width: 60%;
+main section.weather_and_task .weather_widget p {
+	font-size: 1.5rem;
+	font-weight: 200;
 }
 
-main section.weather_and_task .date{
-    color: var(--color-white);
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
+main section.weather_and_task .weather_widget .weather_image {
+	width: 60%;
 }
 
-main section.weather_and_task .date .date_container h4{
-    font-weight: 100;
-    font-size: 1.4rem;
+main section.weather_and_task .date {
+	color: var(--color-white);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
-main section.weather_and_task .date .date_container h1{
-    font-size: 3rem;
-    margin-bottom: -2rem;
+main section.weather_and_task .date .date_container h4 {
+	font-weight: 100;
+	font-size: 1.4rem;
 }
 
-main section.weather_and_task .task{
-    height: 30rem;
-    overflow-y: auto
+main section.weather_and_task .date .date_container h1 {
+	font-size: 3rem;
+	margin-bottom: -2rem;
 }
 
-main section.weather_and_task .task .add_task_button{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height:100%;
+main section.weather_and_task .task {
+	height: 30rem;
+	overflow-y: auto;
 }
 
-main section.weather_and_task .task .add_task_button button, main section.weather_and_task .date button{
-    height:4rem;
-    width:4rem;
-    border-radius: 50%;
-    border: none;
-    background-color: var(--color-secondary);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transform: translateY(-0.2rem);
-    cursor: pointer;
-    transition: all 0.5s;
+main section.weather_and_task .task .add_task_button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }
 
-main section.weather_and_task .task .add_task_button button:hover, main section.weather_and_task .date button:hover{
-    background-color: var(--color-secondary-light)
+main section.weather_and_task .task .add_task_button button,
+main section.weather_and_task .date button {
+	height: 4rem;
+	width: 4rem;
+	border-radius: 50%;
+	border: none;
+	background-color: var(--color-secondary);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	transform: translateY(-0.2rem);
+	cursor: pointer;
+	transition: all 0.5s;
 }
 
-main section.weather_and_task .task .add_task_button button:active, main section.weather_and_task .date button:active{
-    transform: translateY(.5rem);
+main section.weather_and_task .task .add_task_button button:hover,
+main section.weather_and_task .date button:hover {
+	background-color: var(--color-secondary-light);
 }
 
-main section.weather_and_task .add_task_button button .fa-plus, main section.weather_and_task .date button .fa-plus{
-    color: var(--color-primary);
-    font-weight:bold;
-    font-size: 2rem;
+main section.weather_and_task .task .add_task_button button:active,
+main section.weather_and_task .date button:active {
+	transform: translateY(0.5rem);
 }
 
-main section.weather_and_task .add_task_button p{
-    color: var(--color-gray);
-    font-weight: 100;
+main section.weather_and_task .add_task_button button .fa-plus,
+main section.weather_and_task .date button .fa-plus {
+	color: var(--color-primary);
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+main section.weather_and_task .add_task_button p {
+	color: var(--color-gray);
+	font-weight: 100;
 }
 
 /* Style scroll bars */
-main section.weather_and_task .task::-webkit-scrollbar{
-    width: .5rem;
+main section.weather_and_task .task::-webkit-scrollbar {
+	width: 0.5rem;
 }
 
-main section.weather_and_task .task::-webkit-scrollbar-track{
-    box-shadow: inset 0 0 5px var(--color-primary); 
-    border-radius: 10px;
+main section.weather_and_task .task::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px var(--color-primary);
+	border-radius: 10px;
 }
 
 main section.weather_and_task .task::-webkit-scrollbar-thumb {
-    background: var(--color-white); 
-    border-radius: 10px;
+	background: var(--color-white);
+	border-radius: 10px;
 }
 
-
 /* Main Section */
-main section.main{
-    grid-area: Main;
-    display: flex;
-    flex-direction: column;
+main section.main {
+	grid-area: Main;
+	display: flex;
+	flex-direction: column;
 }
 
 main section.main .tab_buttons {
-    display: flex;
+	display: flex;
 }
 
-main section.main .tab_buttons .tab_button{
-    width:100%;
-    padding:1.5rem 1rem;
-    border: none;
-    outline: none;
-    background-color: var(--color-bg-button);
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--color-text1);
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.4s;
+main section.main .tab_buttons .tab_button {
+	width: 100%;
+	padding: 1.5rem 1rem;
+	border: none;
+	outline: none;
+	background-color: var(--color-bg-button);
+	font-size: 1.5rem;
+	font-weight: 900;
+	color: var(--color-text1);
+	font-family: inherit;
+	cursor: pointer;
+	transition: all 0.4s;
 }
 
-main section.main .tab_buttons .tab_button:hover{
-    opacity: 0.7;
+main section.main .tab_buttons .tab_button:hover {
+	opacity: 0.7;
 }
 
-main section.main .tab_buttons .tab_button:not(:last-child){
-    border-right: 2px solid var(--color-text1);
+main section.main .tab_buttons .tab_button:not(:last-child) {
+	border-right: 2px solid var(--color-text1);
 }
-main section.main .tab_contents{
-    height: 66.4rem;
-}
-
-main section.main .tab_contents .tab_content{
-    height: 100%;
-    overflow-y: auto;
+main section.main .tab_contents {
+	height: 66.4rem;
 }
 
-main section.main .tab_contents .tab_content .content{
-    padding: 0rem 4rem;
-    width: 100%;
+main section.main .tab_contents .tab_content {
+	height: 100%;
+	overflow-y: auto;
 }
 
-main section.main .tab_contents .tab_content .content h1{
-    font-size:4rem;
-    font-weight: 900;
-    text-transform: capitalize;
-    color: var(--color-black);
+main section.main .tab_contents .tab_content .content {
+	padding: 0rem 4rem;
+	width: 100%;
 }
 
-main section.main .tab_contents .tab_content .content .calendar_container{
-    width: 100%;
-    display: flex;
+main section.main .tab_contents .tab_content .content h1 {
+	font-size: 4rem;
+	font-weight: 900;
+	text-transform: capitalize;
+	color: var(--color-black);
 }
 
-main section.main .tab_contents .tab_content .content .calendar_container .calendar{
-    width: 100%;
+main section.main .tab_contents .tab_content .content .calendar_container {
+	width: 100%;
+	display: flex;
 }
 
-main section.main .tab_contents .tab_content .content .calendar_container .calendar .daysOfWeek{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+main section.main .tab_contents .tab_content .content .calendar_container .calendar {
+	width: 100%;
 }
 
-main section.main .tab_contents .tab_content .content .calendar_container .calendar .daysOfWeek span{
-    font-size: 2rem;
-    font-weight: bold;
+main section.main .tab_contents .tab_content .content .calendar_container .calendar .daysOfWeek {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
-main section.main .tab_contents .tab_content .content .calendar_container .calendar .calendar_dates{
-    height: 30rem;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: .5rem;
+main section.main .tab_contents .tab_content .content .calendar_container .calendar .daysOfWeek span {
+	font-size: 2rem;
+	font-weight: bold;
 }
 
-main section.main .tab_contents .tab_content .content .calendar_container .calendar .calendar_dates span{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    cursor: pointer;
+main section.main .tab_contents .tab_content .content .calendar_container .calendar .calendar_dates {
+	height: 30rem;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	gap: 0.5rem;
 }
 
-main section.main .tab_contents .tab_content .content .task_status .status_container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+main section.main .tab_contents .tab_content .content .calendar_container .calendar .calendar_dates span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	cursor: pointer;
 }
 
-main section.main .tab_contents .tab_content .content .task_status .status_container .status{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+main section.main .tab_contents .tab_content .content .task_status .status_container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
-main section.main .tab_contents .tab_content .content .task_status .status_container .status h2{
-    font-size: 2rem;
+main section.main .tab_contents .tab_content .content .task_status .status_container .status {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-main section.main .tab_contents .tab_content .content .task_status .status_container .status h3{
-    font-size: 2.5rem;
+main section.main .tab_contents .tab_content .content .task_status .status_container .status h2 {
+	font-size: 2rem;
 }
 
-main section.main .tab_contents .tab_content .content .task_status .status_container .complete{
-    color: var(--color-completed);
+main section.main .tab_contents .tab_content .content .task_status .status_container .status h3 {
+	font-size: 2.5rem;
 }
 
-main section.main .tab_contents .tab_content .content .task_status .status_container .undone{
-    color: var(--color-danger);
+main section.main .tab_contents .tab_content .content .task_status .status_container .complete {
+	color: var(--color-completed);
 }
 
-main section.main .tab_contents .tab_content .content .task_status .status_container .postponed{
-    color: var(--color-postpone);
+main section.main .tab_contents .tab_content .content .task_status .status_container .undone {
+	color: var(--color-danger);
 }
 
-main section.main .tab_contents .tab_content .content .task_status .status_container .all_task{
-    color: var(--color-all);
+main section.main .tab_contents .tab_content .content .task_status .status_container .postponed {
+	color: var(--color-postpone);
+}
+
+main section.main .tab_contents .tab_content .content .task_status .status_container .all_task {
+	color: var(--color-all);
 }
 
 /* latest news section */
-main section.main .tab_contents .latest_news .contents{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    gap: 1rem;
+main section.main .tab_contents .latest_news .contents {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: auto;
+	gap: 1rem;
 }
 
-main section.main .tab_contents .latest_news .contents .article{
-    background-color: var(--color-bg-button);
-    margin: 1rem;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5), 0 4px 18px 0 rgba(0, 0, 0, 0.19);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+main section.main .tab_contents .latest_news .contents .article {
+	background-color: var(--color-bg-button);
+	margin: 1rem;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5), 0 4px 18px 0 rgba(0, 0, 0, 0.19);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-main section.main .tab_contents .latest_news .contents .article .section1{
-    padding: 1rem 1rem;
-    color: var(--color-black)
+main section.main .tab_contents .latest_news .contents .article .section1 {
+	padding: 1rem 1rem;
+	color: var(--color-black);
 }
 
-main section.main .tab_contents .latest_news .contents .article .section1 h1{
-    font-weight: bolder;
-    text-transform: capitalize;
+main section.main .tab_contents .latest_news .contents .article .section1 h1 {
+	font-weight: bolder;
+	text-transform: capitalize;
 }
 
-main section.main .tab_contents .latest_news .contents .article .section1 .date{
-
-    margin-top: -1rem;
-    margin-bottom: 2rem;
+main section.main .tab_contents .latest_news .contents .article .section1 .date {
+	margin-top: -1rem;
+	margin-bottom: 2rem;
 }
 
-main section.main .tab_contents .latest_news .contents .article .section1 .title{
-    font-size: 2rem;
-    font-weight: 900;
-    text-transform: capitalize;
+main section.main .tab_contents .latest_news .contents .article .section1 .title {
+	font-size: 2rem;
+	font-weight: 900;
+	text-transform: capitalize;
 }
 
-main section.main .tab_contents .latest_news .contents .article .section1 .author{
-  font-weight: 900;
+main section.main .tab_contents .latest_news .contents .article .section1 .author {
+	font-weight: 900;
 }
 
-main section.main .tab_contents .latest_news .contents .image img{
-    width: 100%;
-    height: 100%;
+main section.main .tab_contents .latest_news .contents .image img {
+	width: 100%;
+	height: 100%;
 }
 
 /* Bible section */
-main section.main .tab_contents .bible .contents{
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
+main section.main .tab_contents .bible .contents {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
 }
 
-main section.main .tab_contents .bible .contents .select_element{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 1rem;
+main section.main .tab_contents .bible .contents .select_element {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 1rem;
 }
 
-main section.main .tab_contents .bible .contents .select_element select{
-    padding: 1.5rem 1.5rem;
-    width: 100%;
-    outline: none;
-    border: 1px solid var(--color-gray);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-family: inherit;
-    font-size: 1.6rem;
+main section.main .tab_contents .bible .contents .select_element select {
+	padding: 1.5rem 1.5rem;
+	width: 100%;
+	outline: none;
+	border: 1px solid var(--color-gray);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	font-family: inherit;
+	font-size: 1.6rem;
 }
 
-main section.main .tab_contents .bible .contents .result{
-    margin-top: 2rem;
-    padding: 1rem;
+main section.main .tab_contents .bible .contents .result {
+	margin-top: 2rem;
+	padding: 1rem;
 }
 
-main section.main .tab_contents .bible .contents .result h1{
-    font-size: 3rem;
-    font-weight: 900;
+main section.main .tab_contents .bible .contents .result h1 {
+	font-size: 3rem;
+	font-weight: 900;
 }
 
-main section.main .tab_contents .bible .contents .result .more{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 3rem;
+main section.main .tab_contents .bible .contents .result .more {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 3rem;
 }
 
-main section.main .tab_contents .bible .contents .result .more{
-    font-size: 2rem;
-    margin-top: -3rem;
+main section.main .tab_contents .bible .contents .result .more {
+	font-size: 2rem;
+	margin-top: -3rem;
 }
 
-main section.main .tab_contents .bible .contents .result .text{
-    font-size: 2rem;
-    font-weight: 800;
+main section.main .tab_contents .bible .contents .result .text {
+	font-size: 2rem;
+	font-weight: 800;
 }
 
 /* Currency Conversion */
-main section.main .tab_contents .currency_converter .contents{
-    padding: 3rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+main section.main .tab_contents .currency_converter .contents {
+	padding: 3rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
-main section.main .tab_contents .currency_converter .contents .currency_converter{
-    width: 100%;
-    display: flex;
+main section.main .tab_contents .currency_converter .contents .currency_converter {
+	width: 100%;
+	display: flex;
 }
 
-main section.main .tab_contents .currency_converter .contents .currency_converter .currency{
-    padding: 1.5rem 1.5rem;
-    width: 100%;
-    outline: none;
-    border: 1px solid var(--color-gray);
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-    font-family: inherit;
-    font-size: 1.6rem;
+main section.main .tab_contents .currency_converter .contents .currency_converter .currency {
+	padding: 1.5rem 1.5rem;
+	width: 100%;
+	outline: none;
+	border: 1px solid var(--color-gray);
+	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+	font-family: inherit;
+	font-size: 1.6rem;
 }
 
-main section.main .tab_contents .currency_converter .contents .result{
-    display: flex;
-    justify-content: space-evenly;
+main section.main .tab_contents .currency_converter .contents .result {
+	display: flex;
+	justify-content: space-evenly;
 }
 
-main section.main .tab_contents .currency_converter .contents .result .rate, .conversion{
-    display: flex;
-    align-items:center;
-    gap: 2rem;
+main section.main .tab_contents .currency_converter .contents .result .rate,
+.conversion {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
 }
 
-main section.main .tab_contents .currency_converter .contents .result .rate p, .conversion p{
-    font-size: 3rem;
+main section.main .tab_contents .currency_converter .contents .result .rate p,
+.conversion p {
+	font-size: 3rem;
 }
-
 
 /* Style scroll bars */
-main section.main .tab_contents .tab_content::-webkit-scrollbar{
-    width: .5rem;
+main section.main .tab_contents .tab_content::-webkit-scrollbar {
+	width: 0.5rem;
 }
 
-main section.main .tab_contents .tab_content::-webkit-scrollbar-track{
-    box-shadow: inset 0 0 5px var(--color-primary); 
+main section.main .tab_contents .tab_content::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px var(--color-primary);
 }
 
 main section.main .tab_contents .tab_content::-webkit-scrollbar-thumb {
-    background: var(--color-white); 
-    border-radius: 10px;
+	background: var(--color-white);
+	border-radius: 10px;
 }
 
 /* Weather Modal */
 .modal {
-    width: 60rem;
-    background-color: var(--color-bg-button);
-    position: absolute;
-    top:  30%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    animation-name: openModal;
-    animation-duration: 0.4s;
-    z-index: 20;
+	width: 60rem;
+	background-color: var(--color-bg-button);
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -30%);
+	animation-name: openModal;
+	animation-duration: 0.4s;
+	z-index: 14;
 }
 
-.weather_modal .modal_content .weather_details{
-    display: flex;
-    justify-content:space-evenly;
+.weather_modal .modal_content .weather_details {
+	display: flex;
+	justify-content: space-evenly;
 }
 
-.weather_modal .modal_content .weather_details .high_temp, .low_temp, .humidity, .wind, .visibility {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
+.weather_modal .modal_content .weather_details .high_temp,
+.low_temp,
+.humidity,
+.wind,
+.visibility {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-.weather_modal .modal_content{
-    padding: 4rem;
+.weather_modal .modal_content {
+	padding: 4rem;
 }
 
-.weather_modal .modal_content .weather_form input{
-    padding: 1.5rem 1.5rem;
-    width: 100%;
-    outline: none;
-    border: 1px solid var(--color-gray);
-    border-radius: 10rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-family: inherit;
-    font-size: 1.6rem;
+.weather_modal .modal_content .weather_form input {
+	padding: 1.5rem 1.5rem;
+	width: 100%;
+	outline: none;
+	border: 1px solid var(--color-gray);
+	border-radius: 10rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	font-family: inherit;
+	font-size: 1.6rem;
 }
 
-.overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: var(--color-primary);
-    opacity: 0.5;
-    width: 100vw;
-    height: 100vh;
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: var(--color-primary);
+	opacity: 0.5;
+	width: 100vw;
+	height: 100vh;
+}
+
+/* .side_overlay{
     z-index: 10;
+} */
+
+.weather_overlay {
+	z-index: 13;
+}
+
+.task_overlay {
+	z-index: 13;
 }
 
 /* Add Task Modal */
-.task_modal .modal_content{
-    padding: 4rem;
+.task_modal .modal_content {
+	padding: 4rem;
 }
 
-.task_modal .modal_content header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.task_modal .modal_content header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.task_modal .modal_content .task_form{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+.task_modal .modal_content .task_form {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	z-index: 14;
 }
 
-.task_modal .modal_content .task_form input{
-    padding: 1.5rem 1.5rem;
-    width: 100%;
-    outline: none;
-    border: 1px solid var(--color-gray);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-family: inherit;
-    font-size: 1.6rem;
+.task_modal .modal_content .task_form input {
+	padding: 1.5rem 1.5rem;
+	width: 100%;
+	outline: none;
+	border: 1px solid var(--color-gray);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	font-family: inherit;
+	font-size: 1.6rem;
 }
 
-.btn{
-    padding: 1rem 1rem;
-    border: none;
-    outline: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: bold;
-    color: var(--color-white);
-    transition: all 0.4s;
+.btn {
+	padding: 1rem 1rem;
+	border: none;
+	outline: none;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	cursor: pointer;
+	font-family: inherit;
+	font-weight: bold;
+	color: var(--color-white);
+	transition: all 0.4s;
 }
 
-.btn:active{
-    transform: translateY(.5rem);
+.btn:active {
+	transform: translateY(0.5rem);
 }
 
-.task_modal .modal_content button.cancel{
-    background-color: var(--color-danger);
+.task_modal .modal_content button.cancel {
+	background-color: var(--color-danger);
 }
 
-.task_modal .modal_content button.submit{
-    background-color: var(--color-secondary);
+.task_modal .modal_content button.submit {
+	background-color: var(--color-secondary);
 }
 
 /* Utility */
-.hide{
-    display: none;
-    opacity: 0;
+.hide {
+	display: none;
+	opacity: 0;
 }
 
-.current{
-    color: var(--color-secondary);
-    font-weight: 900;
-    font-size: 2rem !important;
+.current {
+	color: var(--color-secondary);
+	font-weight: 900;
+	font-size: 2rem !important;
 }
 
-main section.main .tab_buttons button.active{
-    border-bottom: 4px solid var(--color-primary);
+main section.main .tab_buttons button.active {
+	border-bottom: 4px solid var(--color-primary);
 }
 
-.toast{
-    width: 50rem;
-    padding: 0rem 1rem;
-    border-radius: 3px;
-    position: absolute;
-    top: 3%;
-    left: 50%;
-    transform: translate(-50%, -3%);
-    color: var(--color-white);
-    z-index: 30;
+.toast {
+	width: 50rem;
+	padding: 0rem 1rem;
+	border-radius: 3px;
+	position: absolute;
+	top: 3%;
+	left: 50%;
+	transform: translate(-50%, -3%);
+	color: var(--color-white);
+	z-index: 30;
 }
 
-.loadMessage{
-    animation-name: loadMessageBox;
-    animation-duration: 1s;
+.loadMessage {
+	animation-name: loadMessageBox;
+	animation-duration: 1s;
 }
 
-.hideMessage{
-    animation-name: hideMessageBox;
-    animation-duration: 1s;
+.hideMessage {
+	animation-name: hideMessageBox;
+	animation-duration: 1s;
 }
 
-.toast p{
-    font-size: 1.5rem;
-    margin-top: -1rem;
+.toast p {
+	font-size: 1.5rem;
+	margin-top: -1rem;
 }
 
-.info{
-    background-color: var(--color-info);
+.info {
+	background-color: var(--color-info);
 }
 
-.danger{
-    background-color: var(--color-danger);
+.danger {
+	background-color: var(--color-danger);
 }
 
-.warning{
-    background-color: var(--color-warning);
+.warning {
+	background-color: var(--color-warning);
+}
+
+.sideMenu {
+	animation-name: openSide;
+	animation-duration: 1s;
+}
+
+.closeSide {
+	animation-name: closeSide;
+	animation-duration: 1s;
 }
 
 /* animation */
 @keyframes openModal {
-    
-    from {
-        top: -30%;
-        left: 50%;
-        transform: translate(-50%, -30%);
-        opacity: 0;
-    }
+	from {
+		top: -30%;
+		left: 50%;
+		transform: translate(-50%, -30%);
+		opacity: 0;
+	}
 
-    to{
-        top:  30%;
-        left: 50%;
-        transform: translate(-50%, -30%);
-        opacity: 1;
-    }
+	to {
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%, -30%);
+		opacity: 1;
+	}
 }
 
 @keyframes loadMessageBox {
-    from {
-        top: -3%;
-        left: 50%;
-        transform: translate(-50%, -3%);
-        opacity: 0;
-    }
+	from {
+		top: -3%;
+		left: 50%;
+		transform: translate(-50%, -3%);
+		opacity: 0;
+	}
 
-    to{
-        top:  3%;
-        left: 50%;
-        transform: translate(-50%, -3%);
-        opacity: 1;
-    }
+	to {
+		top: 3%;
+		left: 50%;
+		transform: translate(-50%, -3%);
+		opacity: 1;
+	}
 }
 
 @keyframes hideMessageBox {
-    from {
-        top: 3%;
-        left: 50%;
-        transform: translate(-50%, -3%);
-        opacity: 1;
-    }
+	from {
+		top: 3%;
+		left: 50%;
+		transform: translate(-50%, -3%);
+		opacity: 1;
+	}
 
-    to{
-        top:  -3%;
-        left: 50%;
-        transform: translate(-50%, -3%);
-        opacity: 0;
-    }
+	to {
+		top: -3%;
+		left: 50%;
+		transform: translate(-50%, -3%);
+		opacity: 0;
+	}
+}
+
+@keyframes openSide {
+	from {
+		left: -100%;
+		opacity: 0;
+	}
+	to {
+		left: 0;
+		opacity: 1;
+	}
+}
+
+@keyframes closeSide {
+	from {
+		left: 0;
+		opacity: 1;
+	}
+	to {
+		left: -100%;
+		opacity: 1;
+	}
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 1193px) {
+	body {
+		background-color: var(--color-white);
+	}
+
+	/* main */
+	main {
+		max-width: 100vw;
+		height: 100vh;
+		background-color: var(--color-white);
+		margin: 0rem auto;
+		box-shadow: none;
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-rows: repeat(12, 1fr);
+		grid-template-areas:
+			"header header header header header header header header header header header header"
+			"Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main"
+			"Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main"
+			"Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main"
+			"Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main"
+			"Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main"
+			"Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main"
+			"Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main"
+			"Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main"
+			"Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main"
+			"Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main"
+			"Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main   Main";
+	}
+
+	main section.weather_and_task {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 50vw;
+		height: 100vh;
+		display: none;
+	}
+
+	main header .menu {
+		display: block;
+	}
+
+	main section.main .tab_contents {
+		height: 100vh;
+	}
+
+	main section.weather_and_task i.fa-times {
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	html {
+		font-size: 8px;
+	}
+
+	main section.weather_and_task {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 80vw;
+		height: 100vh;
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 608px) {
+	main section.main .tab_buttons button i {
+		display: none;
+	}
+
+	main section.main .tab_contents .tab_content .content .calendar_container .calendar .daysOfWeek span {
+		font-size: 1.4rem;
+		font-weight: bold;
+	}
+
+	main section.main .tab_contents .tab_content .content .task_status .status_container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	main section.main .tab_contents .tab_content .content .task_status .status_container .status {
+		display: flex;
+		flex-direction: row;
+		gap: 5rem;
+		align-items: center;
+	}
+
+	main section.weather_and_task {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		display: none;
+	}
+
+	/* Add Task Modal */
+	.task_modal .modal_content {
+		padding: 2rem;
+	}
+
+	.task_modal .modal_content .task_form input {
+		padding: 1.5rem 1.5rem;
+		width: 100%;
+		outline: none;
+		border: 1px solid var(--color-gray);
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		font-family: inherit;
+		font-size: 1.4rem;
+	}
+
+	.modal {
+		width: 40rem;
+		background-color: var(--color-bg-button);
+		position: absolute;
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%, -30%);
+		animation-name: openModal;
+		animation-duration: 0.4s;
+		z-index: 14;
+	}
+
+	.weather_modal .modal_content .weather_details {
+		display: flex;
+		justify-content: space-evenly;
+	}
+
+	.weather_modal .modal_content .weather_details .high_temp,
+	.low_temp,
+	.humidity,
+	.wind,
+	.visibility {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.weather_modal .modal_content {
+		padding: 4rem;
+	}
+}
+
+@media only screen and (max-width: 606px) {
+	/* Add Task Modal */
+
+	.task_modal {
+		width: 100%;
+	}
+	.task_modal .modal_content {
+		padding: 2rem;
+	}
+
+	.task_modal .modal_content .task_form input {
+		padding: 1.5rem 1.5rem;
+		width: 100%;
+		outline: none;
+		border: 1px solid var(--color-gray);
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		font-family: inherit;
+		font-size: 1.4rem;
+	}
+
+	main section.main .tab_contents .tab_content .content .task_status .status_container {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		justify-content: center;
+		align-items: center;
+	}
+
+	main section.main .tab_contents .tab_content .content .task_status .status_container .status {
+		display: flex;
+		flex-direction: row;
+		gap: 5rem;
+		justify-content: center;
+		align-items: center;
+	}
 }

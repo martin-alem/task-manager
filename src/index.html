@@ -1,106 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Martin Alemajoh">
-    <title>Welcome | Task Manager</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Martin Alemajoh" />
+		<title>Welcome | Task Manager</title>
 
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
+		<!-- Google fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet" />
 
-    <!--Custom Style Sheet-->
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
+		<!--Custom Style Sheet-->
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
 
-    <main>
-        <header>
-            <div class="header__image">
-                <img src="https://i.ibb.co/s6vHqRb/default-profile-photo.png" alt="user photo">
-                <h4 class="header__username">Martin A</h4>
-            </div>
-            <button class="btn logout">Logout</button>
-        </header>
+	<body>
+		<main>
+			<header>
+				<div class="menu">
+					<i class="fas fa-bars"></i>
+				</div>
+				<div class="header__image">
+					<img src="https://i.ibb.co/s6vHqRb/default-profile-photo.png" alt="user photo" />
+					<h4 class="header__username">Martin A</h4>
+				</div>
+				<button class="btn logout">Logout</button>
+			</header>
 
-        <section class="weather_and_task">
-            <div class="weather_widget">
-                <img src="https://i.ibb.co/h9HgYQk/default-weather-icon.png" class="weather_image" alt="weather icon">
-                <h2 class="temp"><span class="temp_value">00</span> &deg;c</h2>
-                <p class="weather_desc">sunshine and clouds</p>
-            </div>
+			<section class="weather_and_task">
+				<i class="fas fa-times"></i>
+				<div class="weather_widget">
+					<img src="https://i.ibb.co/h9HgYQk/default-weather-icon.png" class="weather_image" alt="weather icon" />
+					<h2 class="temp"><span class="temp_value">00</span> &deg;c</h2>
+					<p class="weather_desc">weather description</p>
+				</div>
 
-            <div class="date">
-                <div class="date_container">
-                    <h1 class="current_day">Wednesday</h1>
-                    <h4 class="current_date">10 September</h4>
-                </div>
-                <button class="add_task hide"><i class="fas fa-plus"></i></button>
-            </div>
+				<div class="date">
+					<div class="date_container">
+						<h1 class="current_day">Wednesday</h1>
+						<h4 class="current_date">10 September</h4>
+					</div>
+					<button class="add_task hide"><i class="fas fa-plus"></i></button>
+				</div>
 
-            <div class="task">
-                <div class="add_task_button">
-                    <button class="add_task"><i class="fas fa-plus"></i></button>
-                    <p class="no_task">No task found...</p>
-                </div>
-            </div>
-        </section>
+				<div class="task">
+					<div class="add_task_button">
+						<button class="add_task"><i class="fas fa-plus"></i></button>
+						<p class="no_task">No task found...</p>
+					</div>
+				</div>
+			</section>
 
-        <section class="main">
-            <div class="tab_buttons">
-                <button class="tab_button active" data-section="task"><i class="fas fa-tasks"></i> Task</button>
-                <button class="tab_button" data-section="latest_news"><i class="fas fa-newspaper"></i> Latest News</button>
-                <button class="tab_button" data-section="bible"><i class="fas fa-book"></i> Bible</button>
-                <button class="tab_button" data-section="currency_converter"><i class="fas fa-money-bill"></i> Currency Converter</button>
-            </div>
-            <div class="tab_contents">
-                <div class="tab_content task" data-section="task">
-                    <div class="content">
-                        <h1 class="date"></h1>
-                        <div class="calendar_container">
-                            <div class="calendar">
-                                <div class="daysOfWeek">
-                                    <span>Mon</span>
-                                    <span>Tue</span>
-                                    <span>Wed</span>
-                                    <span>Thu</span>
-                                    <span>Fri</span>
-                                    <span>Sat</span>
-                                    <span>Sun</span>
-                                </div>
-                                <hr class="line">
-                                <div id="calendar" class="calendar_dates"></div>
-                                <hr class="line">
-                            </div>
-                        </div>
-                        <div class="task_status">
-                            <div class="status_container">
-                                <div class="status complete">
-                                    <h2>Completed</h2>
-                                    <h3>0</h3>
-                                </div>
-                                <div class="status undone">
-                                    <h2>Undone</h2>
-                                    <h3>0</h3>
-                                </div>
-                                <div class="status postponed">
-                                    <h2>Postponed</h2>
-                                    <h3>0</h3>
-                                </div>
-                                <div class="status all_task">
-                                    <h2>All Task</h2>
-                                    <h3>0</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab_content latest_news hide" data-section="latest_news">
-                   <div class="contents">
-                       <!-- <div class="article">
+			<section class="main">
+				<div class="tab_buttons">
+					<button class="tab_button active" data-section="task"><i class="fas fa-tasks"></i> Task</button>
+					<button class="tab_button" data-section="latest_news"><i class="fas fa-newspaper"></i> Latest News</button>
+					<button class="tab_button" data-section="bible"><i class="fas fa-book"></i> Bible</button>
+					<button class="tab_button" data-section="currency_converter"><i class="fas fa-money-bill"></i> Currency Converter</button>
+				</div>
+				<div class="tab_contents">
+					<div class="tab_content task" data-section="task">
+						<div class="content">
+							<h1 class="date"></h1>
+							<div class="calendar_container">
+								<div class="calendar">
+									<div class="daysOfWeek">
+										<span>Mon</span>
+										<span>Tue</span>
+										<span>Wed</span>
+										<span>Thu</span>
+										<span>Fri</span>
+										<span>Sat</span>
+										<span>Sun</span>
+									</div>
+									<hr class="line" />
+									<div id="calendar" class="calendar_dates"></div>
+									<hr class="line" />
+								</div>
+							</div>
+							<div class="task_status">
+								<div class="status_container">
+									<div class="status complete">
+										<h2>Completed</h2>
+										<h3>0</h3>
+									</div>
+									<div class="status undone">
+										<h2>Undone</h2>
+										<h3>0</h3>
+									</div>
+									<div class="status postponed">
+										<h2>Postponed</h2>
+										<h3>0</h3>
+									</div>
+									<div class="status all_task">
+										<h2>All Task</h2>
+										<h3>0</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab_content latest_news hide" data-section="latest_news">
+						<div class="contents">
+							<!-- <div class="article">
                            <div class="section1">
                                <h1 class="source">ABC News</h1>
                                <p class="date">January 12, 2021</p>
@@ -112,125 +116,125 @@
                                <img src="https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/6d7b9b0c6325b850763f814133606022.jpg" alt="" class="news_image">
                            </div>
                        </div> -->
-                   </div>
-                </div>
-                <div class="tab_content bible hide" data-section="bible">
-                    <div class="contents">
-                        <form class="select_element">
-                            <select name="book" id="book" class="book">
-                                <option data-chapter="0" value ="" select>Select A Book</option>
-                            </select>
-                            <select name="chapter" id="chapter" class="chapter">
-                                <option select>Select A Chapter</option>
-                            </select>
-                            <select name="verse" id="verse" class="verse">
-                                <option select>Select A Verse</option>
-                            </select>
-                        </form>
-                        <div class="result">
-                        </div>
-                    </div>
-                </div>
-                <div class="tab_content currency_converter hide" data-section="currency_converter">
-                    <div class="contents">
-                        <form class="currency_converter">
-                            <input type="text" class="currency amount" placeholder="Enter Amount">
-                            <select name="currency" id="base" class="currency from">
-                                <option value ="" select>From</option>
-                            </select>
+						</div>
+					</div>
+					<div class="tab_content bible hide" data-section="bible">
+						<div class="contents">
+							<form class="select_element">
+								<select name="book" id="book" class="book">
+									<option data-chapter="0" value="" select>Select A Book</option>
+								</select>
+								<select name="chapter" id="chapter" class="chapter">
+									<option select>Select A Chapter</option>
+								</select>
+								<select name="verse" id="verse" class="verse">
+									<option select>Select A Verse</option>
+								</select>
+							</form>
+							<div class="result"></div>
+						</div>
+					</div>
+					<div class="tab_content currency_converter hide" data-section="currency_converter">
+						<div class="contents">
+							<form class="currency_converter">
+								<input type="text" class="currency amount" placeholder="Enter Amount" />
+								<select name="currency" id="base" class="currency from">
+									<option value="" select>From</option>
+								</select>
 
-                            <select name="currency" id="target" class="currency to">
-                                <option value ="" select>To</option>
-                            </select>
-                        </form>
-                        <div class="result">
-                            <div class="rate">
-                                <h1>Conversion Rate: </h1>
-                                <p></p>
-                            </div>
-                            <div class="conversion">
-                                <h1>Conversion Result: </h1>
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+								<select name="currency" id="target" class="currency to">
+									<option value="" select>To</option>
+								</select>
+							</form>
+							<div class="result">
+								<div class="rate">
+									<h1>Conversion Rate:</h1>
+									<p></p>
+								</div>
+								<div class="conversion">
+									<h1>Conversion Result:</h1>
+									<p></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
 
-    <!--Overlay-->
-    <div class="overlay weather_overlay hide"></div>
-    <div class="overlay task_overlay hide"></div>
+		<!--Overlay-->
+		<div class="overlay weather_overlay hide"></div>
+		<div class="overlay task_overlay hide"></div>
 
-    <!--Weather Modal-->
-    <div class="modal weather_modal hide">
-        <div class="modal_content">
-            <h1 class="modal_heading">Columbus, OH</h1>
-            <hr class="line">
-            <div class="weather_details">
-                <div class="high_temp">
-                    <img src="https://i.ibb.co/M1nxz21/high-temp.png" alt="High Temperature" class="high_temp_image">
-                    <h1 class="value">00</h1>
-                </div>
-                <div class="low_temp">
-                    <img src="https://i.ibb.co/9HNCKLp/low-temp.png" alt="Low Temperature" class="low_temp_image">
-                    <h1 class="value">00</h1>
-                </div>
-                <div class="humidity">
-                    <img src="https://i.ibb.co/zFcnMDW/humidity.png" alt="humidity" class="humidity_image">
-                    <h1 class="value">00</h1>
-                </div>
-                <div class="wind">
-                    <img src="https://i.ibb.co/QDX2VZk/wind.png" alt="wind" class="wind_image">
-                    <h1 class="value">00</h1>
-                </div>
-                <div class="visibility">
-                    <img src="https://i.ibb.co/xf1sYxk/visibility.png" alt="visibility" class="visibility_image">
-                    <h1 class="value">00</h1>
-                </div>
-            </div>
-            <form class="weather_form">
-                <input type="text" class="city" placeholder="City name">
-            </form>
-        </div>
-    </div>
+		<!--Weather Modal-->
+		<div class="modal weather_modal hide">
+			<div class="modal_content">
+				<h1 class="modal_heading">City name, State</h1>
+				<hr class="line" />
+				<div class="weather_details">
+					<div class="high_temp">
+						<img src="https://i.ibb.co/M1nxz21/high-temp.png" alt="High Temperature" class="high_temp_image" />
+						<h1 class="value">00</h1>
+					</div>
+					<div class="low_temp">
+						<img src="https://i.ibb.co/9HNCKLp/low-temp.png" alt="Low Temperature" class="low_temp_image" />
+						<h1 class="value">00</h1>
+					</div>
+					<div class="humidity">
+						<img src="https://i.ibb.co/zFcnMDW/humidity.png" alt="humidity" class="humidity_image" />
+						<h1 class="value">00</h1>
+					</div>
+					<div class="wind">
+						<img src="https://i.ibb.co/QDX2VZk/wind.png" alt="wind" class="wind_image" />
+						<h1 class="value">00</h1>
+					</div>
+					<div class="visibility">
+						<img src="https://i.ibb.co/xf1sYxk/visibility.png" alt="visibility" class="visibility_image" />
+						<h1 class="value">00</h1>
+					</div>
+				</div>
+				<form class="weather_form">
+					<input type="text" class="city" placeholder="City name" />
+				</form>
+			</div>
+		</div>
 
+		<!-- Add task Modal -->
+		<div class="modal task_modal hide">
+			<div class="modal_content">
+				<button class="btn cancel">Cancel</button>
+				<header>
+					<h1 class="heading">Add Task</h1>
+				</header>
+				<form class="task_form">
+					<input type="text" class="description" placeholder="Task Description" />
+					<input type="text" class="duration" placeholder="Task Duration. Example: 1h, 3m, 40s" />
+					<input type="text" class="priority" placeholder="Task Priority. Example: 1 - 5" />
+					<button class="btn submit">Add Task</button>
+				</form>
+			</div>
+		</div>
 
-    <!-- Add task Modal -->
-    <div class="modal task_modal hide">
-        <div class="modal_content">
-            <button class="btn cancel">Cancel</button>
-            <header>
-                <h1 class="heading">Add Task</h1>
-            </header>
-            <form class="task_form">
-                <input type="text" class="description" placeholder="Task Description">
-                <input type="text" class="duration" placeholder="Task Duration. Example: 1h, 3m, 40s">
-                <input type="text" class="priority" placeholder="Task Priority. Example: 1 - 5">
-                <button class="btn submit">Add Task</button>
-            </form>
-        </div>
-    </div>
+		<!-- Toast Notification -->
+		<div class="toast hide">
+			<h1 class="heading"></h1>
+			<p class="message"></p>
+		</div>
 
-    <!-- Toast Notification -->
-    <div class="toast hide">
-        <h1 class="heading"></h1>
-        <p class="message"></p>
-    </div>
+		<!-- Font Awesome Library-->
+		<script src="https://kit.fontawesome.com/baa956de60.js" crossorigin="anonymous"></script>
 
-    
+		<!--JQuery-->
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
 
-        <!-- Font Awesome Library-->
-        <script src="https://kit.fontawesome.com/baa956de60.js" crossorigin="anonymous"></script>
+		<!-- Page functionality -->
+		<script src="./js/util/page_functionality.js"></script>
 
-        <!--JQuery-->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-        <!-- Page functionality -->
-        <script src="./js/util/page_functionality.js"></script>
-
-        <!--Main app functionality-->
-        <script type="module" src="./js/app.js"></script>
-</body>
+		<!--Main app functionality-->
+		<script type="module" src="./js/app.js"></script>
+	</body>
 </html>

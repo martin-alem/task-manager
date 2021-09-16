@@ -1,6 +1,7 @@
 import WeatherModel from "../model/WeatherModel.js";
 import WLocalStorage from "../model/LocalStorage.js";
 import WeatherView from "../view/WeatherView.js";
+import ErrorHandler from "../util/ErrorHandler.js";
 
 class WeatherController{
 
@@ -28,6 +29,7 @@ class WeatherController{
                 const data = this.weatherModel.extractWeatherData(weatherData);
                 this.weatherView.displayWeatherData(data)
             } catch (error) {
+                ErrorHandler.message("Warning", error, 3000);
                 console.log(error);
             }
         }
@@ -35,6 +37,7 @@ class WeatherController{
             
             try {
                 const position = await this._getCoordinates();
+                console.log(position)
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
                 const weatherData = await this._fetchWeatherByCoordinate(latitude, longitude);
@@ -43,7 +46,8 @@ class WeatherController{
                 this.wLocalStorage.addData("location", data["city"]);
 
             } catch (error) {
-                console.log(error);
+                ErrorHandler.message("Warning", error, 3000);
+                console.error(error);
             }
         }
         
@@ -55,12 +59,8 @@ class WeatherController{
      * @returns {object} returns an object containing weather data
      */
     async _fetchWeatherByCity(cityName){
-        try {
-            const weatherData = await this.weatherModel.fetchWeatherByCity(cityName);
-            return weatherData;
-        } catch (error) {
-            console.log(error);
-        }
+        const weatherData = await this.weatherModel.fetchWeatherByCity(cityName);
+        return weatherData;
     }
 
     /**
@@ -70,13 +70,8 @@ class WeatherController{
      * @returns {object} returns an object containing weather data
      */
     async _fetchWeatherByCoordinate(latitude, longitude){
-        try {
-            const weatherData = await this.weatherModel._fetchWeatherByCoordinate(latitude, longitude);
-            return weatherData;
-        } catch (error) {
-            console.log(error);
-        }
-
+        const weatherData = await this.weatherModel.fetchWeatherByCoordinate(latitude, longitude);
+        return weatherData;
     }
 
     /**
@@ -84,12 +79,8 @@ class WeatherController{
      * @returns {object} returns an object containing user's geographical location
      */
     async _getCoordinates(){
-        try {
-            const position = await this._getUserLocation();
-            return position;
-        } catch (error) {
-            console.log(error);
-        }
+        const position = await this._getUserLocation();
+        return position;
     }
 
 
@@ -126,8 +117,8 @@ class WeatherController{
                 this.weatherView.displayWeatherData(data);
                 event.target.firstElementChild.value = "";
             } catch (error) {
-                // Give the user an alert for invalid location
-                console.log(error);
+                // If readyState is 4 request failed
+                ErrorHandler.message("Warning", error, 3000);
             }
         }
     }

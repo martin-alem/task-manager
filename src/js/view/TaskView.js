@@ -12,6 +12,15 @@ class TaskView {
 
 		this.taskStatusContainer = document.querySelector(".task_status_modal");
 		this.taskStatusOverlay = document.querySelector(".task_status_overlay");
+
+		this.completedButton = document.querySelector(".task_status_modal .completed");
+		this.undoneButton = document.querySelector(".task_status_modal .undone");
+		this.postponeButton = document.querySelector(".task_status_modal .postponed");
+
+		this.completedStatus = document.querySelector("section.main .tab_contents .tab_content .content .task_status .status_container .complete h3");
+		this.undoneStatus = document.querySelector("section.main .tab_contents .tab_content .content .task_status .status_container .undone h3");
+		this.postPonedStatus = document.querySelector("section.main .tab_contents .tab_content .content .task_status .status_container .postponed h3");
+		this.allStatus = document.querySelector("section.main .tab_contents .tab_content .content .task_status .status_container .all_task h3");
 	}
 
 	displayTask(taskList, Timer, taskDone) {
@@ -58,13 +67,25 @@ class TaskView {
 		h.html(hour);
 	}
 
-	showStatusModal() {
-		this.taskStatusOverlay.classList.remove("hide");
-		this.taskStatusContainer.classList.remove("hide");
+	toggleStatusModal() {
+		this.taskStatusOverlay.classList.toggle("hide");
+		this.taskStatusContainer.classList.toggle("hide");
 	}
 
-	registerEvents(handler) {
-		this.submitButton.addEventListener("click", handler);
+	updateTaskSummary(summary) {
+		if (summary && Object.keys(summary).length > 0) {
+			this.completedStatus.textContent = summary["complete"];
+			this.undoneStatus.textContent = summary["undone"];
+			this.postPonedStatus.textContent = summary["postponed"];
+			this.allStatus.textContent = summary["all"];
+		}
+	}
+
+	registerEvents(submitHandler, completedHandler, undoneHandler, postponedHandler) {
+		this.submitButton.addEventListener("click", submitHandler);
+		this.completedButton.addEventListener("click", completedHandler);
+		this.undoneButton.addEventListener("click", undoneHandler);
+		this.postponeButton.addEventListener("click", postponedHandler);
 	}
 }
 

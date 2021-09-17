@@ -9,6 +9,9 @@ class TaskController {
 		this.taskView = new TaskView();
 		this.taskManager = new TaskManager();
 		this._handleSubmission = this._handleSubmission.bind(this);
+		this._completeHandler = this._completeHandler.bind(this);
+		this._undoneHandler = this._undoneHandler.bind(this);
+		this._postPonedHandler = this._postPonedHandler.bind(this);
 		this.taskDone = this.taskDone.bind(this);
 	}
 
@@ -31,13 +34,15 @@ class TaskController {
 			this.taskManager.addTask(task);
 			taskForm.reset();
 			this.taskView.displayTask(this.taskManager.task, Timer, this.taskDone);
+			this.taskManager.updateTaskStatus("all");
+			this.taskView.updateTaskSummary(this.taskManager.getTaskSummary());
 		}
 	}
 
 	taskDone() {
 		this.taskManager.updateTask();
 		this.taskView.displayTask(this.taskManager.task, Timer, this.taskDone);
-		this.taskView.showStatusModal();
+		this.taskView.toggleStatusModal();
 	}
 
 	loadTask() {
@@ -47,6 +52,27 @@ class TaskController {
 			this.taskManager.task = tasks;
 			this.taskView.displayTask(tasks, Timer, this.taskDone);
 		}
+	}
+
+	_completeHandler(event) {
+		event.preventDefault();
+		const summary = this.taskManager.updateTaskStatus("complete");
+		this.taskView.updateTaskSummary(summary);
+		this.taskView.toggleStatusModal();
+	}
+
+	_undoneHandler(event) {
+		event.preventDefault();
+		const summary = this.taskManager.updateTaskStatus("undone");
+		this.taskView.updateTaskSummary(summary);
+		this.taskView.toggleStatusModal();
+	}
+
+	_postPonedHandler(event) {
+		event.preventDefault();
+		const summary = this.taskManager.updateTaskStatus("postponed");
+		this.taskView.updateTaskSummary(summary);
+		this.taskView.toggleStatusModal();
 	}
 
 	validateDuration(duration) {
@@ -62,8 +88,9 @@ class TaskController {
 	}
 
 	init() {
-		this.taskView.registerEvents(this._handleSubmission);
+		this.taskView.registerEvents(this._handleSubmission, this._completeHandler, this._undoneHandler, this._postPonedHandler);
 		this.loadTask();
+		this.taskView.updateTaskSummary(this.taskManager.getTaskSummary());
 	}
 }
 

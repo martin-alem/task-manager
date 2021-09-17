@@ -5,9 +5,10 @@ import currencyController from "./controller/CurrencyController.js";
 import taskController from "./controller/TaskController.js";
 
 window.onload = function () {
-	weatherController.init();
+	// weatherController.init();
 	// newsController.init();
 	// bibleController.init();
 	// currencyController.init();
 	taskController.init();
+
 };

@@ -1,9 +1,12 @@
 import TaskView from "../view/TaskView.js";
+import TaskModel from "../model/TaskModel.js";
+import TaskManager from "../model/TaskManager.js";
 import ErrorHandler from "../util/ErrorHandler.js";
 
 class TaskController {
 	constructor() {
 		this.taskView = new TaskView();
+        this.taskManager = new TaskManager();
         this._handleSubmission = this._handleSubmission.bind(this);
 	}
 
@@ -25,10 +28,11 @@ class TaskController {
         }
         else{
             ErrorHandler.message("info", "Task added to queue", 3000);
+            let task = new TaskModel(description, duration, priority);
+            this.taskManager.addTask(task);
             taskForm.reset();
+            this.taskView.displayTask(this.taskManager.task);
         }
-        
-
 	}
 
     validateDuration(duration){

@@ -654,6 +654,35 @@ main section.main .tab_contents .tab_content::-webkit-scrollbar-thumb {
 	background-color: var(--color-secondary);
 }
 
+/* Task status modal */
+.task_status .modal_content {
+	padding: 3rem;
+	display: flex;
+	justify-content: center;
+	gap: 4rem;
+}
+
+.task_status .modal_content button{
+	padding: 2rem;
+	outline:none;
+	border: none;
+	color: var(--color-white);
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+.task_status .modal_content .completed{
+	background-color: var(--color-completed);
+}
+
+.task_status .modal_content .undone{
+	background-color: var(--color-danger);
+}
+
+.task_status .modal_content .postponed{
+	background-color: var(--color-postpone);
+}
+
 /* Utility */
 .hide {
 	display: none;

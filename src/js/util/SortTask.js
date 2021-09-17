@@ -6,14 +6,14 @@ function mergeSortedArray(array1, array2) {
 	let sortedArray = [];
 
 	while (array1Pointer < array1Length && array2Pointer < array2Length) {
-		if (array1[array1Pointer]["priority"] < array2[array2Pointer]["priority"]) {
+		if (parseInt(array1[array1Pointer]["priority"]) < parseInt(array2[array2Pointer]["priority"])) {
 			sortedArray.push(array1[array1Pointer++]);
-		} else if (array1[array1Pointer]["priority"] > array2[array2Pointer]["priority"]) {
+		} else if (parseInt(array1[array1Pointer]["priority"]) > parseInt(array2[array2Pointer]["priority"])) {
 			sortedArray.push(array2[array2Pointer++]);
 		}
-		else if(array1[array1Pointer]["priority"] === array2[array2Pointer]["priority"]) {
+		else if(parseInt(array1[array1Pointer]["priority"]) === parseInt(array2[array2Pointer]["priority"])) {
 			//  sort based on time added to queue
-			if(array1[array1Pointer]["timeStamp"] < array2[array2Pointer]["timeStamp"]) {
+			if(parseInt(array1[array1Pointer]["timeStamp"]) < parseInt(array2[array2Pointer]["timeStamp"])) {
 				sortedArray.push(array1[array1Pointer++]);
 			}
 			else{
@@ -35,7 +35,7 @@ function mergeSortedArray(array1, array2) {
 
 function sortTask(list) {
 
-	if(list.length === 1){
+	if(list.length <= 1){
 		return list;
 	}
 

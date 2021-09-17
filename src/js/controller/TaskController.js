@@ -2,12 +2,14 @@ import TaskView from "../view/TaskView.js";
 import TaskModel from "../model/TaskModel.js";
 import TaskManager from "../model/TaskManager.js";
 import ErrorHandler from "../util/ErrorHandler.js";
+import Timer from "../util/Timer.js";
 
 class TaskController {
 	constructor() {
 		this.taskView = new TaskView();
         this.taskManager = new TaskManager();
         this._handleSubmission = this._handleSubmission.bind(this);
+        this.taskDone = this.taskDone.bind(this);
 	}
 
 	_handleSubmission(event) {
@@ -28,12 +30,27 @@ class TaskController {
         }
         else{
             ErrorHandler.message("info", "Task added to queue", 3000);
-            let task = new TaskModel(description, duration, priority);
+            let task = new TaskModel(description, duration, priority, new Date().getTime());
             this.taskManager.addTask(task);
             taskForm.reset();
-            this.taskView.displayTask(this.taskManager.task);
+            this.taskView.displayTask(this.taskManager.task, Timer, this.taskDone);
         }
 	}
+
+    taskDone(){
+        this.taskManager.updateTask();
+        this.taskView.displayTask(this.taskManager.task, Timer, this.taskDone);
+    }
+
+    loadTask(){
+
+        const tasks = this.taskManager.loadTask();
+
+        if(tasks){
+            this.taskManager.task = tasks;
+            this.taskView.displayTask(tasks, Timer, this.taskDone);
+        }
+    }
 
     validateDuration(duration){
 
@@ -50,6 +67,7 @@ class TaskController {
 
 	init() {
 		this.taskView.registerEvents(this._handleSubmission);
+        this.loadTask();
 	}
 }
 

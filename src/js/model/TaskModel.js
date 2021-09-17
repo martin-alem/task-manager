@@ -1,19 +1,11 @@
 class TaskModel{
 
-    constructor(description, duration, priority) {
+    constructor(description, duration, priority, timeStamp) {
         this.description = description;
         this.duration = duration;
         this.priority = priority;
+        this.timeStamp = timeStamp;
     }
-
-    start() {
-
-    }
-
-    pause() {
-
-    }
-
 }
 
 export default TaskModel;

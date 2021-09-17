@@ -9,6 +9,9 @@ class TaskView {
 		this.taskContainer = $(".weather_and_task .task_container");
 		// this.taskButton = document.querySelector(".weather_and_task .task_container .add_task_button");
 		this.taskButton2 = document.querySelector(".weather_and_task .date .add_task");
+
+		this.taskStatusContainer = document.querySelector(".task_status_modal");
+		this.taskStatusOverlay = document.querySelector(".task_status_overlay");
 	}
 
 	displayTask(taskList, Timer, taskDone) {
@@ -53,6 +56,11 @@ class TaskView {
 		s.html(second);
 		m.html(minute);
 		h.html(hour);
+	}
+
+	showStatusModal() {
+		this.taskStatusOverlay.classList.remove("hide");
+		this.taskStatusContainer.classList.remove("hide");
 	}
 
 	registerEvents(handler) {

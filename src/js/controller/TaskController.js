@@ -3,6 +3,7 @@ import TaskModel from "../model/TaskModel.js";
 import TaskManager from "../model/TaskManager.js";
 import ErrorHandler from "../util/ErrorHandler.js";
 import Timer from "../util/Timer.js";
+import TaskNotification from "../util/TaskNotification.js";
 
 class TaskController {
 	constructor() {
@@ -43,6 +44,7 @@ class TaskController {
 		this.taskManager.updateTask();
 		this.taskView.displayTask(this.taskManager.task, Timer, this.taskDone);
 		this.taskView.showStatusModal();
+		TaskNotification.showNotification("Task Manager", "A task has been successfully completed");
 	}
 
 	loadTask() {

@@ -42,7 +42,7 @@ class TaskController {
 	taskDone() {
 		this.taskManager.updateTask();
 		this.taskView.displayTask(this.taskManager.task, Timer, this.taskDone);
-		this.taskView.toggleStatusModal();
+		this.taskView.showStatusModal();
 	}
 
 	loadTask() {
@@ -58,21 +58,21 @@ class TaskController {
 		event.preventDefault();
 		const summary = this.taskManager.updateTaskStatus("complete");
 		this.taskView.updateTaskSummary(summary);
-		this.taskView.toggleStatusModal();
+		this.taskView.hideStatusModal();
 	}
 
 	_undoneHandler(event) {
 		event.preventDefault();
 		const summary = this.taskManager.updateTaskStatus("undone");
 		this.taskView.updateTaskSummary(summary);
-		this.taskView.toggleStatusModal();
+		this.taskView.hideStatusModal();
 	}
 
 	_postPonedHandler(event) {
 		event.preventDefault();
 		const summary = this.taskManager.updateTaskStatus("postponed");
 		this.taskView.updateTaskSummary(summary);
-		this.taskView.toggleStatusModal();
+		this.taskView.hideStatusModal();
 	}
 
 	validateDuration(duration) {
@@ -88,9 +88,13 @@ class TaskController {
 	}
 
 	init() {
+		this.taskManager.setUpStorage();
 		this.taskView.registerEvents(this._handleSubmission, this._completeHandler, this._undoneHandler, this._postPonedHandler);
 		this.loadTask();
 		this.taskView.updateTaskSummary(this.taskManager.getTaskSummary());
+		if (!this.taskManager.providedFeedback()) {
+			this.taskView.showStatusModal();
+		}
 	}
 }
 

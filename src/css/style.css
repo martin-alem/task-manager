@@ -167,7 +167,7 @@ main section.weather_and_task .task_container {
 	overflow-y: auto;
 }
 
-main section.weather_and_task .task_container .task{
+main section.weather_and_task .task_container .task {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -175,17 +175,18 @@ main section.weather_and_task .task_container .task{
 	font-size: 1.5rem;
 }
 
-main section.weather_and_task .task_container .task:not(first-child){
+main section.weather_and_task .task_container .task:not(first-child) {
 	margin-top: 1rem;
 }
 
-main section.weather_and_task .task_container .task .timer{
+main section.weather_and_task .task_container .task .timer {
+	width: 20%;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
 	background-color: var(--color-danger);
 	border-radius: 100px;
-	padding: .5rem;
+	padding: 0.5rem;
 	color: var(--color-white);
 	font-weight: bold;
 }
@@ -196,7 +197,7 @@ main section.weather_and_task .task_container .task .description {
 	cursor: pointer;
 }
 
-main section.weather_and_task .task_container .task .play_pause{
+main section.weather_and_task .task_container .task .play_pause {
 	color: var(--color-danger);
 	cursor: pointer;
 }
@@ -666,24 +667,24 @@ main section.main .tab_contents .tab_content::-webkit-scrollbar-thumb {
 	gap: 4rem;
 }
 
-.task_status_modal .modal_content button{
+.task_status_modal .modal_content button {
 	padding: 2rem;
-	outline:none;
+	outline: none;
 	border: none;
 	color: var(--color-white);
 	font-weight: bolder;
 	cursor: pointer;
 }
 
-.task_status_modal .modal_content .completed{
+.task_status_modal .modal_content .completed {
 	background-color: var(--color-completed);
 }
 
-.task_status_modal .modal_content .undone{
+.task_status_modal .modal_content .undone {
 	background-color: var(--color-danger);
 }
 
-.task_status_modal .modal_content .postponed{
+.task_status_modal .modal_content .postponed {
 	background-color: var(--color-postpone);
 }
 
@@ -1007,5 +1008,12 @@ main section.main .tab_buttons button.active {
 		gap: 5rem;
 		justify-content: center;
 		align-items: center;
+	}
+
+	/* Task status modal */
+	.task_status_modal .modal_content {
+		padding: 3rem;
+		display: flex;
+		flex-direction: column;
 	}
 }

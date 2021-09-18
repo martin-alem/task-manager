@@ -67,9 +67,14 @@ class TaskView {
 		h.html(hour);
 	}
 
-	toggleStatusModal() {
-		this.taskStatusOverlay.classList.toggle("hide");
-		this.taskStatusContainer.classList.toggle("hide");
+	showStatusModal() {
+		this.taskStatusOverlay.classList.remove("hide");
+		this.taskStatusContainer.classList.remove("hide");
+	}
+
+	hideStatusModal() {
+		this.taskStatusOverlay.classList.add("hide");
+		this.taskStatusContainer.classList.add("hide");
 	}
 
 	updateTaskSummary(summary) {

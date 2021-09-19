@@ -37,7 +37,7 @@ such as **Latest News**, **Bible Verses** and **Currency Converter**.
 
 ![home page](https://i.ibb.co/Mg8m1Wz/Home.png)
 ![weather](https://i.ibb.co/dPtmMWh/Weather.png)
-![add task](https://i.ibb.co/q9xCdzG/Update-Task.png)
+![add task](https://i.ibb.co/p2YNJcp/Add-Task.png)
 ![news](https://i.ibb.co/cxTfHbj/News.png)
 ![bible](https://i.ibb.co/jbN9bV4/Dictionary.png)
 

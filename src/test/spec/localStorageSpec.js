@@ -3,9 +3,14 @@ import WLocalStorage from "../../js/model/LocalStorage.js";
 describe("LocalStorage", function () {
 
   let wLocalStorage;
-  beforeAll(function () {
+  beforeEach(function () {
     wLocalStorage = new WLocalStorage();
+    window.localStorage.setItem("test", JSON.stringify("Test Data"));
   });
+
+  afterEach(function () {
+    window.localStorage.removeItem("test");
+  })
 
   it("should add an item to the local storage", function(){
     expect(wLocalStorage.addData("test", "Test Data")).toBeTrue();

@@ -1,7 +1,7 @@
+import ErrorHandler from "../util/ErrorHandler.js";
 import WeatherModel from "../model/WeatherModel.js";
 import WLocalStorage from "../model/LocalStorage.js";
 import WeatherView from "../view/WeatherView.js";
-import ErrorHandler from "../util/ErrorHandler.js";
 
 class WeatherController {
 	constructor() {
@@ -32,7 +32,6 @@ class WeatherController {
 		} else {
 			try {
 				const position = await this._getCoordinates();
-				console.log(position);
 				const latitude = position.coords.latitude;
 				const longitude = position.coords.longitude;
 				const weatherData = await this._fetchWeatherByCoordinate(latitude, longitude);

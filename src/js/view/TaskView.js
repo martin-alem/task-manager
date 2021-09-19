@@ -23,6 +23,12 @@ class TaskView {
 		this.allStatus = document.querySelector("section.main .tab_contents .tab_content .content .task_status .status_container .all_task h3");
 	}
 
+	/**
+	 * Displays the task onto the view
+	 * @param {Array} taskList array containing all task
+	 * @param {Timer} Timer timer object
+	 * @param {Function} taskDone function that runs when timer is done.
+	 */
 	displayTask(taskList, Timer, taskDone) {
 		this.taskContainer.empty();
 		for (let i = 0; i < taskList.length; i++) {
@@ -47,6 +53,13 @@ class TaskView {
 		}
 	}
 
+	/**
+	 * Updates the current task timer
+	 * @param {string} second seconds
+	 * @param {string} minute minutes
+	 * @param {hour} hour hour
+	 * @param {number} id task id
+	 */
 	updateTimer(second, minute, hour, id) {
 		const s = $(`.task_container .task #timer${id} .second`);
 		const m = $(`.task_container .task #timer${id} .minute`);
@@ -67,16 +80,26 @@ class TaskView {
 		h.html(hour);
 	}
 
+	/**
+	 * Shows status modal
+	 */
 	showStatusModal() {
 		this.taskStatusOverlay.classList.remove("hide");
 		this.taskStatusContainer.classList.remove("hide");
 	}
 
+	/**
+	 * Hides status modal
+	 */
 	hideStatusModal() {
 		this.taskStatusOverlay.classList.add("hide");
 		this.taskStatusContainer.classList.add("hide");
 	}
 
+	/**
+	 * updates task summary
+	 * @param {object} summary task summary
+	 */
 	updateTaskSummary(summary) {
 		if (summary && Object.keys(summary).length > 0) {
 			this.completedStatus.textContent = summary["complete"];
@@ -86,6 +109,13 @@ class TaskView {
 		}
 	}
 
+	/**
+	 * Registers event handlers.
+	 * @param {Function} submitHandler submit handler
+	 * @param {Function} completedHandler complete handler
+	 * @param {Function} undoneHandler undone handler
+	 * @param {Function} postponedHandler postPoned handler
+	 */
 	registerEvents(submitHandler, completedHandler, undoneHandler, postponedHandler) {
 		this.submitButton.addEventListener("click", submitHandler);
 		this.completedButton.addEventListener("click", completedHandler);

@@ -9,6 +9,8 @@ class TaskController {
 	constructor() {
 		this.taskView = new TaskView();
 		this.taskManager = new TaskManager();
+
+		//binding this keyword to the event handlers
 		this._handleSubmission = this._handleSubmission.bind(this);
 		this._completeHandler = this._completeHandler.bind(this);
 		this._undoneHandler = this._undoneHandler.bind(this);
@@ -16,6 +18,13 @@ class TaskController {
 		this.taskDone = this.taskDone.bind(this);
 	}
 
+	/**
+	 * Handles the submission of a task.
+	 * Creates a model of the task
+	 * displays the added to the task view
+	 * update total task count
+	 * @param {Event} event event object
+	 */
 	_handleSubmission(event) {
 		event.preventDefault();
 		const description = this.taskView.description.value;
@@ -40,6 +49,13 @@ class TaskController {
 		}
 	}
 
+	/**
+	 * Function that is called when a task is done.
+	 * It updates the task
+	 * Displays the updated task on to the view
+	 * Shows the task status modal
+	 * Activates the desktop notification
+	 */
 	taskDone() {
 		this.taskManager.updateTask();
 		this.taskView.displayTask(this.taskManager.task, Timer, this.taskDone);
@@ -47,6 +63,9 @@ class TaskController {
 		TaskNotification.showNotification("Task Manager", "A task has been successfully completed");
 	}
 
+	/**
+	 * Display's the task onto the view
+	 */
 	loadTask() {
 		const tasks = this.taskManager.loadTask();
 
@@ -56,6 +75,10 @@ class TaskController {
 		}
 	}
 
+	/**
+	 * Handles the action performed when a user sets the status of a task as completed
+	 * @param {Event} event event object
+	 */
 	_completeHandler(event) {
 		event.preventDefault();
 		const summary = this.taskManager.updateTaskStatus("complete");
@@ -63,6 +86,10 @@ class TaskController {
 		this.taskView.hideStatusModal();
 	}
 
+	/**
+	 * Handles the action performed when a user sets the status of a task as undone
+	 * @param {Event} event event object
+	 */
 	_undoneHandler(event) {
 		event.preventDefault();
 		const summary = this.taskManager.updateTaskStatus("undone");
@@ -70,6 +97,10 @@ class TaskController {
 		this.taskView.hideStatusModal();
 	}
 
+	/**
+	 * Handles the action performed when a user sets the status of a task as postponed
+	 * @param {Event} event event object
+	 */
 	_postPonedHandler(event) {
 		event.preventDefault();
 		const summary = this.taskManager.updateTaskStatus("postponed");
@@ -77,6 +108,11 @@ class TaskController {
 		this.taskView.hideStatusModal();
 	}
 
+	/**
+	 * Validates the task duration to ensure that its in the correct formate
+	 * @param {string} duration task duration
+	 * @returns 
+	 */
 	validateDuration(duration) {
 		duration = duration.replace(/\s/g, "").toLowerCase();
 		const numSeg = duration.slice(0, duration.length - 1);
@@ -89,6 +125,9 @@ class TaskController {
 		return false;
 	}
 
+	/**
+	 * Initializes the taskManager
+	 */
 	init() {
 		this.taskManager.setUpStorage();
 		this.taskView.registerEvents(this._handleSubmission, this._completeHandler, this._undoneHandler, this._postPonedHandler);

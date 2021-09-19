@@ -6,12 +6,10 @@ import taskController from "./controller/TaskController.js";
 import TaskNotification from "./util/TaskNotification.js";
 
 window.onload = function () {
-
-    TaskNotification.requestPermissions();
+	TaskNotification.requestPermissions();
 	// weatherController.init();
 	// newsController.init();
 	// bibleController.init();
 	// currencyController.init();
 	taskController.init();
-
 };

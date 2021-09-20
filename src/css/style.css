@@ -876,6 +876,14 @@ main section.main .tab_buttons button.active {
 	main section.weather_and_task i.fa-times {
 		display: block;
 	}
+
+	/* latest news section */
+	main section.main .tab_contents .latest_news .contents {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
+		gap: 1rem;
+	}
 }
 
 @media only screen and (max-width: 768px) {
@@ -890,6 +898,14 @@ main section.main .tab_buttons button.active {
 		width: 80vw;
 		height: 100vh;
 		display: none;
+	}
+
+	/* latest news section */
+	main section.main .tab_contents .latest_news .contents {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: auto;
+		gap: 1rem;
 	}
 }
 
@@ -1015,5 +1031,13 @@ main section.main .tab_buttons button.active {
 		padding: 3rem;
 		display: flex;
 		flex-direction: column;
+	}
+
+	/* latest news section */
+	main section.main .tab_contents .latest_news .contents {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: auto;
+		gap: 1rem;
 	}
 }

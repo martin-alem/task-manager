@@ -7,7 +7,7 @@ import TaskNotification from "./util/TaskNotification.js";
 
 window.onload = function () {
 	TaskNotification.requestPermissions();
-	// weatherController.init();
+	weatherController.init();
 	// newsController.init();
 	// bibleController.init();
 	// currencyController.init();

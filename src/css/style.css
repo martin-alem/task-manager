@@ -705,7 +705,7 @@ main section.main .tab_buttons button.active {
 }
 
 .toast {
-	width: 50rem;
+	width: 40rem;
 	padding: 0rem 1rem;
 	border-radius: 3px;
 	position: absolute;
@@ -993,7 +993,7 @@ main section.main .tab_buttons button.active {
 	/* Add Task Modal */
 
 	.task_modal {
-		width: 100%;
+		width: 90%;
 	}
 	.task_modal .modal_content {
 		padding: 2rem;

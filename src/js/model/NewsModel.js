@@ -1,6 +1,6 @@
 class NewsModel {
 	static url = "https://newsapi.org/v2/everything";
-	static key = "311ed67e61b24259918bac6bd47b24e4";
+	static key = "2155552f4e3845158e9dc45c5e83ca3c";
 
 	/**
 	 * Fetches new articles pertaining to a random subject

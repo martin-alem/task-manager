@@ -1040,4 +1040,10 @@ main section.main .tab_buttons button.active {
 		grid-template-rows: auto;
 		gap: 1rem;
 	}
+
+	main section.main .tab_contents .currency_converter .contents .result {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
 }
